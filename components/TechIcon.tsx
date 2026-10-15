@@ -6,11 +6,16 @@ interface TechIconProps {
   size?: number;
 }
 
+/**
+ * Brand-accurate technology SVG icons.
+ * Each icon matches the official logo as closely as possible.
+ * No shared SVG IDs — safe for multiple renders on the same page.
+ */
 export function TechIcon({ name, className = "w-5 h-5", size = 20 }: TechIconProps) {
   const normalized = name.toLowerCase().replace(/[^a-z0-9]/g, "");
 
   switch (normalized) {
-    /* ─── React ─── */
+    /* ─── React — official atom ─── */
     case "react":
     case "reactjs":
       return (
@@ -24,32 +29,16 @@ export function TechIcon({ name, className = "w-5 h-5", size = 20 }: TechIconPro
         </svg>
       );
 
-    /* ─── Next.js — NO mask/gradient IDs to avoid conflicts ─── */
+    /* ─── Next.js — clean "N" lettermark in circle ─── */
     case "nextjs":
     case "next":
       return (
-        <svg viewBox="0 0 180 180" width={size} height={size} className={className}>
-          {/* Black circle background */}
-          <circle cx="90" cy="90" r="90" fill="#000" />
-          {/* White border ring */}
-          <circle cx="90" cy="90" r="87" fill="none" stroke="#fff" strokeWidth="5" />
-          {/* Left vertical bar of the N */}
-          <rect x="54" y="54" width="12" height="72" fill="#fff" />
-          {/* Diagonal stroke of the N */}
-          <path d="M54 54L126 140V54h12v94.5L54 54z" fill="none" />
-          <path d="M66 54L138 158" stroke="#fff" strokeWidth="12" strokeLinecap="round" />
-          {/* Right vertical bar with fade — solid white */}
-          <rect x="127" y="54" width="12" height="72" fill="url(#njs-fade)" />
-          <defs>
-            <linearGradient id="njs-fade" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#fff" stopOpacity="1" />
-              <stop offset="100%" stopColor="#fff" stopOpacity="0" />
-            </linearGradient>
-          </defs>
+        <svg viewBox="0 0 24 24" width={size} height={size} className={className} fill="white">
+          <path d="M11.572 0c-.176 0-.31.001-.358.007a19.76 19.76 0 0 1-.364.033C7.443.346 4.25 2.185 2.228 5.012a11.875 11.875 0 0 0-2.119 5.243c-.096.659-.108.854-.108 1.747s.012 1.089.108 1.748c.652 4.506 3.86 8.292 8.209 9.695.779.25 1.6.422 2.534.525.363.04 1.935.04 2.299 0 1.611-.178 2.977-.577 4.323-1.264.207-.106.247-.134.219-.158a338.413 338.413 0 0 0-1.955-2.62l-1.919-2.592-2.404-3.558a332.151 332.151 0 0 0-2.421-3.556c-.009-.002-.018 1.579-.023 3.51-.007 3.38-.01 3.515-.052 3.595a.426.426 0 0 1-.206.214c-.075.037-.14.044-.495.044H7.81l-.108-.068a.44.44 0 0 1-.157-.171l-.05-.106.006-4.703.007-4.705.072-.092a.645.645 0 0 1 .174-.143c.096-.047.134-.051.54-.051.478 0 .558.018.682.154.035.038 1.337 1.999 2.895 4.361a4592.01 4592.01 0 0 0 4.735 7.17l1.9 2.878.096-.063a12.317 12.317 0 0 0 2.466-2.163 11.944 11.944 0 0 0 2.824-6.134c.096-.66.108-.854.108-1.748 0-.893-.012-1.088-.108-1.747-.652-4.506-3.86-8.292-8.208-9.695a12.597 12.597 0 0 0-2.499-.523A21.228 21.228 0 0 0 11.572 0zm4.069 7.217c.347 0 .408.005.486.047a.473.473 0 0 1 .237.277c.018.06.023 1.365.018 4.304l-.006 4.218-.744-1.14-.746-1.14v-3.066c0-1.982.01-3.097.023-3.15a.478.478 0 0 1 .233-.296c.096-.05.13-.054.5-.054z" />
         </svg>
       );
 
-    /* ─── TypeScript ─── */
+    /* ─── TypeScript — official blue rounded square with "TS" ─── */
     case "typescript":
     case "ts":
       return (
@@ -62,7 +51,7 @@ export function TechIcon({ name, className = "w-5 h-5", size = 20 }: TechIconPro
         </svg>
       );
 
-    /* ─── JavaScript ─── */
+    /* ─── JavaScript — yellow square with "JS" ─── */
     case "javascript":
     case "js":
       return (
@@ -75,52 +64,55 @@ export function TechIcon({ name, className = "w-5 h-5", size = 20 }: TechIconPro
         </svg>
       );
 
-    /* ─── Node.js — solid green hexagon with proper "node" wordmark style ─── */
+    /* ─── Node.js — official 3D-ish hexagon ─── */
     case "nodejs":
     case "node":
       return (
-        <svg viewBox="0 0 448 512" width={size} height={size} className={className}>
+        <svg viewBox="0 0 256 292" width={size} height={size} className={className}>
           <path
-            d="M224 508c-6.7 0-13.5-1.8-19.4-5.2l-61.7-36.5c-9.2-5.2-4.7-7-1.7-8 12.3-4.3 14.8-5.2 27.9-12.7 1.4-.8 3.2-.5 4.6.4l47.4 28.1c1.7 1 4.1 1 5.7 0l184.7-106.6c1.7-1 2.8-3 2.8-5V149.3c0-2.1-1.1-4-2.9-5.1L226.8 37.7c-1.7-1-4-1-5.7 0L36.6 144.3c-1.8 1.1-2.9 3-2.9 5.1v213.1c0 2 1.1 4 2.9 4.9l50.6 29.2c27.5 13.7 44.3-2.4 44.3-18.7V167.5c0-3 2.4-5.3 5.4-5.3h23.4c2.9 0 5.4 2.3 5.4 5.3V378c0 36.6-20 57.6-54.7 57.6-10.7 0-19.1 0-42.5-11.6l-48.4-27.9C8.3 389.2 .4 376.4 .4 362.5v-213c0-13.8 7.9-26.7 20.7-33.5l184.7-106.7c12.5-7.2 29.1-7.2 41.5 0l184.7 106.6c12.8 6.8 20.7 19.7 20.7 33.5v213.1c0 13.8-7.9 26.7-20.7 33.5L243.4 502.8c-5.9 3.4-12.6 5.2-19.4 5.2zm52.1-147.4c-80.9 0-97.8-37.2-97.8-68.4 0-3 2.4-5.3 5.4-5.3h23.9c2.7 0 4.9 1.9 5.4 4.5 3.7 25 14.6 37.5 63.3 37.5 38.9 0 55.5-8.8 55.5-29.4 0-11.9-4.7-20.7-65-26.6-50.4-5-81.5-16.1-81.5-56.4 0-37.2 31.3-59.3 83.8-59.3 58.9 0 88 20.4 91.7 64.3.1 1.5-.4 3-1.4 4.1-1 1.1-2.4 1.7-3.9 1.7h-24c-2.5 0-4.7-1.7-5.2-4.2-5.7-25.4-20.1-33.6-57.1-33.6-42.1 0-47 14.6-47 25.6 0 13.3 5.8 17.2 63.1 24.7 56.7 7.4 83.3 18 83.3 58 0 40.1-33.5 63.1-92.2 63.1z"
-            fill="#5FA04E"
+            d="M128 0L0 73v146l128 73 128-73V73L128 0z"
+            fill="#026E00"
+          />
+          <path
+            d="M128 0L0 73v146l128 73V0z"
+            fill="#41873F"
+          />
+          <path
+            d="M128 0l128 73v146l-128 73V0z"
+            fill="#026E00"
+          />
+          <path
+            d="M112 108v76c0 8-4 14-12 18l-36 20c-2 1-4 1-6 0-8-4-12-10-12-18v-74c0-8 4-14 12-18l36-20c2-1 4-1 6 0 8 4 12 10 12 18z"
+            fill="#fff"
+            opacity="0.15"
+          />
+          <path
+            d="M208 112v66c0 7-4 14-12 18l-56 32c-8 4-16 4-24 0l-56-32c-8-4-12-11-12-18v-66c0-7 4-14 12-18l56-32c8-4 16-4 24 0l56 32c8 4 12 11 12 18z"
+            fill="none"
+            stroke="#fff"
+            strokeWidth="4"
+            opacity="0.3"
           />
         </svg>
       );
 
-    /* ─── Express.js — dark square with clean "Ex" text mark ─── */
+    /* ─── Express.js — clean "ex" text ─── */
     case "express":
     case "expressjs":
       return (
-        <svg viewBox="0 0 256 256" width={size} height={size} className={className}>
-          <rect width="256" height="256" rx="20" fill="#18181B" />
-          <text
-            x="128"
-            y="150"
-            textAnchor="middle"
-            fill="#ffffff"
-            fontSize="72"
-            fontWeight="700"
-            fontFamily="system-ui, -apple-system, Helvetica, Arial, sans-serif"
-            letterSpacing="-2"
-          >
-            Ex
-          </text>
-          <text
-            x="128"
-            y="196"
-            textAnchor="middle"
-            fill="#71717a"
-            fontSize="26"
-            fontWeight="400"
-            fontFamily="system-ui, -apple-system, Helvetica, Arial, sans-serif"
-            letterSpacing="4"
-          >
-            press
-          </text>
+        <svg viewBox="0 0 128 128" width={size} height={size} className={className}>
+          <path
+            d="M126.67 98.44c-4.56 1.16-7.38.05-9.91-3.75-5.68-8.51-11.95-16.63-18-24.9-.78-1.07-1.59-2.12-2.6-3.45C89 76 81.85 85.2 75.14 94.77c-2.4 3.42-4.92 4.91-9.22 3.71l26.42-37.51-24.77-33.77c4.29-.76 7.23-.4 9.55 3.21 5.52 8.57 11.67 16.72 17.73 25.12 6.16-8.39 12.15-16.58 17.68-25.1 2.23-3.44 4.86-4.06 9.19-3.2l-9.57 13.32c-4.81 6.7-9.73 13.34-14.38 20.15-1.18 1.72-1.08 3.11.13 4.77 8.31 11.56 16.53 23.19 25.01 35.04l3.76-.07z"
+            fill="#828282"
+          />
+          <path
+            d="M1.33 61.74c.72-3.61 1.2-7.29 2.2-10.83 6-21.43 27.52-35.64 49.55-32.53 20.44 2.89 36.84 20.54 37.59 41.29.08 2.36-.27 4.74-.44 7.16H12.28c-1.57 19.27 11.55 33.54 29.64 36.26 13.83 2.08 25.9-2.43 35.68-12.78 1.56-1.65 2.89-2.07 4.91-.89-3.68 6.63-8.83 11.6-15.47 14.92-14.66 7.33-29.11 7.19-42.69-1.5C12.01 96.4 4.89 84.88 2.67 70.86c-.29-1.81-.52-3.63-.78-5.44-.19-1.22-.38-2.45-.56-3.68zM12.4 60.08h82.1c-.53-20.56-16.13-35.65-35.47-36.49-21.56-.94-39.74 14.93-46.63 36.49z"
+            fill="#828282"
+          />
         </svg>
       );
 
-    /* ─── Tailwind CSS — official double-wave mark ─── */
+    /* ─── Tailwind CSS — official wave mark ─── */
     case "tailwind":
     case "tailwindcss":
       return (
@@ -134,59 +126,47 @@ export function TechIcon({ name, className = "w-5 h-5", size = 20 }: TechIconPro
         </svg>
       );
 
-    /* ─── HTML5 ─── */
+    /* ─── HTML5 — official shield ─── */
     case "html5":
     case "html":
       return (
         <svg viewBox="0 0 512 512" width={size} height={size} className={className}>
           <path d="M71 460L30 0h452l-41 460-185 52z" fill="#E44D26" />
           <path d="M256 472l149-41 35-391H256v432z" fill="#F16529" />
-          <path
-            d="M256 176h-60l-4-47h64V82H137l12 141h107v-47zm0 148l-1 1-52-14-3-38h-47l7 83 96 27v-59z"
-            fill="#EBEBEB"
-          />
-          <path
-            d="M256 176h60l-6 66h-54v47h50l-5 56-45 12v59l96-27 13-146 3-41 2-26H256v47z"
-            fill="#FFFFFF"
-          />
+          <path d="M256 176h-60l-4-47h64V82H137l12 141h107v-47zm0 148l-1 1-52-14-3-38h-47l7 83 96 27v-59z" fill="#EBEBEB" />
+          <path d="M256 176h60l-6 66h-54v47h50l-5 56-45 12v59l96-27 13-146 3-41 2-26H256v47z" fill="#FFFFFF" />
         </svg>
       );
 
-    /* ─── CSS3 ─── */
+    /* ─── CSS3 — official shield ─── */
     case "css3":
     case "css":
       return (
         <svg viewBox="0 0 512 512" width={size} height={size} className={className}>
           <path d="M71 460L30 0h452l-41 460-185 52z" fill="#1572B6" />
           <path d="M256 472l149-41 35-391H256v432z" fill="#33A9DC" />
-          <path
-            d="M256 176h-60l-4-47h64V82H137l12 141h107v-47zm0 148l-1 1-52-14-3-38h-47l7 83 96 27v-59z"
-            fill="#EBEBEB"
-          />
-          <path
-            d="M256 82v47h106l-4 47H256v47h98l-9 103-89 25v59l149-41 19-216 4-41 2-25H256z"
-            fill="#FFFFFF"
-          />
+          <path d="M256 176h-60l-4-47h64V82H137l12 141h107v-47zm0 148l-1 1-52-14-3-38h-47l7 83 96 27v-59z" fill="#EBEBEB" />
+          <path d="M256 82v47h106l-4 47H256v47h98l-9 103-89 25v59l149-41 19-216 4-41 2-25H256z" fill="#FFFFFF" />
         </svg>
       );
 
-    /* ─── MongoDB ─── */
+    /* ─── MongoDB — official leaf ─── */
     case "mongodb":
     case "mongo":
       return (
         <svg viewBox="0 0 256 549" width={size} height={size} className={className}>
           <path
-            d="M177.6 231.4C163 161.1 128.5 54.6 125.3.9c0 0-2.7 17.4-13 33.2-16.5 25.5-62 96.3-69 158-6.5 57.8 20.4 109.4 59.3 136.1 2.4 1.5 4.3 4.5 3.5 7.2-2.7 9.8-5.4 25-3.5 47.5.5 5.2 4.6 8.5 9.6 8.1 4.1-.3 7.4-3.8 7.9-7.9 4.6-45 12.3-104.2 62.5-150.7-1.2-1-2.3-2-3.1-3 0 0 .4.1 1.1 1z"
-            fill="#13AA52"
+            d="M175.622 61.108C152.612 33.807 132.797 6.078 128.749.32a1.03 1.03 0 0 0-1.492 0c-4.053 5.758-23.865 33.487-46.876 60.788-197.459 251.896 48.956 424.218 48.956 424.218l2.862 2.39c.98 24.188 3.262 53.547 3.262 53.547h-6.936s2.282-29.36 3.263-53.547l2.862-2.39s246.415-172.322 48.956-424.218zM128 486.248s-8.97-6.702-12.091-10.452v-.262l11.657-23.545c.137-.27.564-.27.693 0l11.657 23.545v.262c-3.13 3.751-11.916 10.452-11.916 10.452z"
+            fill="#00ED64"
           />
           <path
-            d="M131.5 382.5c-4.4-45-12.3-104.2-62.5-150.7 1.2-1 2.3-2 3.1-3C86.5 215.5 128.5 95 128.5.9c3.2 53.7 37.5 160.2 52.3 230.5.8 1 1.9 2 3.1 3-50.2 46.5-58.1 105.7-62.5 150.7-.4 4.1-3.8 7.6-7.9 7.9-4.9.3-9-3-9.5-8.1 0-.5.1-1 .1-1.5.5-5.3 4.4-8.6 9.4-8.1.6.1 1.2.2 1.8.4-2.8-9.8-5.5-25-.8-47.3z"
-            fill="#116149"
+            d="M135.916 475.789l-7.049-23.545c-.137-.27-.564-.27-.693 0l-7.049 23.545v.262C124.255 479.597 128 486.248 128 486.248s3.745-6.651 7.916-10.197v-.262z"
+            fill="#004E2A"
           />
         </svg>
       );
 
-    /* ─── Git ─── */
+    /* ─── Git — official branch logo ─── */
     case "git":
       return (
         <svg viewBox="0 0 256 256" width={size} height={size} className={className}>
@@ -197,7 +177,7 @@ export function TechIcon({ name, className = "w-5 h-5", size = 20 }: TechIconPro
         </svg>
       );
 
-    /* ─── GitHub ─── */
+    /* ─── GitHub — official octocat mark ─── */
     case "github":
       return (
         <svg viewBox="0 0 24 24" width={size} height={size} className={className} fill="currentColor">
@@ -209,14 +189,11 @@ export function TechIcon({ name, className = "w-5 h-5", size = 20 }: TechIconPro
         </svg>
       );
 
-    /* ─── VS Code ─── */
+    /* ─── VS Code — official bracket logo ─── */
     case "vscode":
       return (
-        <svg viewBox="0 0 256 256" width={size} height={size} className={className}>
-          <path
-            d="M174.1 3.5c-4.4-2.1-9.7-1.7-13.8 1.1L84.8 59.8 45.4 29.5c-4.5-3.5-10.9-3.4-15.3.3l-24 20.6c-4.3 3.7-5.9 9.6-4 14.8L44.8 128 2.1 190.8c-1.9 5.2-.3 11.1 4 14.8l24 20.6c4.4 3.7 10.8 3.8 15.3.3l39.4-30.3 75.5 55.2c4.1 2.8 9.4 3.2 13.8 1.1 4.5-2.1 7.3-6.6 7.3-11.6V15.1c0-5-2.8-9.5-7.3-11.6zM153 194.2l-64.4-49.8 64.4-49.8v99.6z"
-            fill="#007ACC"
-          />
+        <svg viewBox="0 0 100 100" width={size} height={size} className={className}>
+          <path d="M71.69 2.39L36.54 34.47 14.64 17.5 6.25 21.28V78.74L14.64 82.5l21.9-16.96 35.15 32.08L93.75 91.3V8.72L71.69 2.39zm0 23.92v47.38L36.54 50 71.69 26.31z" fill="#007ACC" />
         </svg>
       );
 

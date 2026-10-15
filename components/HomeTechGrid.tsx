@@ -54,25 +54,17 @@ export function HomeTechGrid() {
           {technologies.map((tech) => (
             <div
               key={tech.name}
-              className="group relative flex flex-col items-center justify-center p-5 rounded-2xl bg-[#090b14]/85 backdrop-blur-md border border-white/[0.07] hover:border-violet-500/40 hover:bg-[#0e1120] transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-[0_8px_25px_-5px_rgba(139,92,246,0.25)]"
+              className="group relative flex flex-col items-center justify-center p-6 rounded-2xl bg-[#0a0d14]/90 backdrop-blur-md border border-white/[0.07] hover:border-violet-500/30 hover:bg-[#0f1220] transition-all duration-300 hover:-translate-y-1"
             >
-              {/* Icon Container */}
-              <div className="w-12 h-12 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
-                <TechIcon name={tech.icon} size={36} />
+              {/* Icon */}
+              <div className="w-11 h-11 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                <TechIcon name={tech.icon} size={38} />
               </div>
 
-              {/* Tech Name */}
-              <span className="text-xs sm:text-sm font-semibold text-slate-200 group-hover:text-white transition-colors text-center">
+              {/* Name */}
+              <span className="text-xs sm:text-sm font-medium text-slate-300 group-hover:text-white transition-colors text-center">
                 {tech.name}
               </span>
-
-              {/* Sub-label */}
-              <span className="text-[10px] font-mono text-slate-500 group-hover:text-violet-300/80 transition-colors mt-0.5">
-                {tech.category}
-              </span>
-
-              {/* Subtle Bottom Accent Line on Hover */}
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 group-hover:w-12 h-[2px] bg-gradient-to-r from-violet-500 to-cyan-400 rounded-full transition-all duration-300" />
             </div>
           ))}
         </div>

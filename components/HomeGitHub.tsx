@@ -15,20 +15,31 @@ import { personalInfo } from "@/data/portfolio";
 export function HomeGitHub() {
   const [hoveredDay, setHoveredDay] = useState<string | null>(null);
 
-  // Clean, minimal 52-week contribution heatmap pattern
+  // Realistic 52-week contribution heatmap — denser in recent weeks like real GitHub
   const weeks = 52;
   const daysPerWeek = 7;
   const heatmapData = React.useMemo(() => {
     const data: number[][] = [];
+    // Seeded "random" that produces a realistic GitHub-like pattern
+    const pseudo = (w: number, d: number) => {
+      const x = Math.sin(w * 12.9898 + d * 78.233) * 43758.5453;
+      return x - Math.floor(x);
+    };
     for (let w = 0; w < weeks; w++) {
       const col: number[] = [];
+      // Activity ramps up toward recent months (right side)
+      const recency = w / weeks; // 0 = oldest, 1 = newest
+      const activityBias = 0.2 + recency * 0.55; // more commits recently
       for (let d = 0; d < daysPerWeek; d++) {
-        const seed = (w * 7 + d * 13) % 100;
+        const isWeekend = d === 0 || d === 6;
+        const weekendPenalty = isWeekend ? 0.5 : 1;
+        const r = pseudo(w, d) * weekendPenalty;
         let level = 0;
-        if (seed > 80) level = 4;
-        else if (seed > 60) level = 3;
-        else if (seed > 40) level = 2;
-        else if (seed > 20) level = 1;
+        const threshold = 1 - activityBias;
+        if (r > threshold + 0.30) level = 4;
+        else if (r > threshold + 0.18) level = 3;
+        else if (r > threshold + 0.06) level = 2;
+        else if (r > threshold) level = 1;
         col.push(level);
       }
       data.push(col);
@@ -36,12 +47,13 @@ export function HomeGitHub() {
     return data;
   }, []);
 
+  // GitHub's exact green contribution colors (dark theme)
   const colorLevels = [
-    "bg-[#121422] border-white/[0.04]", // 0
-    "bg-violet-950/70 border-violet-800/40", // 1
-    "bg-violet-700/80 border-violet-600/50", // 2
-    "bg-violet-500 border-violet-400", // 3
-    "bg-cyan-400 border-cyan-300 shadow-[0_0_8px_#22d3ee]", // 4
+    "bg-[#161b22] border-[#21262d]",         // 0 — empty
+    "bg-[#0e4429] border-[#0e4429]",          // 1 — light green
+    "bg-[#006d32] border-[#006d32]",          // 2 — medium green
+    "bg-[#26a641] border-[#26a641]",          // 3 — bright green
+    "bg-[#39d353] border-[#39d353]",          // 4 — brightest green
   ];
 
   const featuredRepos = [
@@ -106,7 +118,7 @@ export function HomeGitHub() {
           <div className="lg:col-span-8 rounded-3xl p-6 bg-[#090b14]/85 backdrop-blur-md border border-white/[0.08] overflow-hidden">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
-                <Code2 className="w-4 h-4 text-violet-400" />
+                <Code2 className="w-4 h-4 text-[#39d353]" />
                 <h3 className="text-sm font-bold text-white">Contribution Activity</h3>
               </div>
               <span className="text-[11px] font-mono text-slate-500">Past 12 Months</span>
