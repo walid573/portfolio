@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { GraduationCap, Calendar, BookOpen, Building2, Award, Edit3 } from "lucide-react";
+import { GraduationCap, Calendar, BookOpen, Building2, Award } from "lucide-react";
 import { educationData } from "@/data/portfolio";
 
 export function Education() {
@@ -18,7 +18,7 @@ export function Education() {
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass border border-indigo-500/25 text-xs font-mono text-indigo-300 mb-4">
             <GraduationCap className="w-3.5 h-3.5 text-indigo-400" />
-            <span>// 03. ACADEMIC BACKGROUND</span>
+            <span>{"//"} 03. ACADEMIC BACKGROUND</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
             Educational <span className="gradient-text">Foundation</span>
@@ -40,10 +40,6 @@ export function Education() {
                 <GraduationCap className="w-4 h-4" />
                 <span>Level: HSC / College</span>
               </div>
-              <span className="text-[11px] font-mono text-slate-400 flex items-center gap-1.5 bg-slate-900/80 px-3 py-1 rounded-full border border-slate-800">
-                <Edit3 className="w-3.5 h-3.5 text-cyan-400" />
-                <span>Configured in data/portfolio.ts</span>
-              </span>
             </div>
 
             {/* Main Qualification Title */}
@@ -51,11 +47,11 @@ export function Education() {
               {educationData.qualification}
             </h3>
             <p className="text-slate-300 text-sm leading-relaxed mb-6">
-              Higher secondary collegiate education with an emphasis on foundational academic disciplines, critical thinking, and technical coursework.
+              Higher secondary education completed at Chattagram Cantonment Public College, with a focus on academic development and preparation for higher learning.
             </p>
 
             {/* Structured Fields Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
               {/* Field 1: Institution */}
               <div className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800 flex flex-col justify-between">
                 <div className="flex items-center gap-2 text-slate-400 text-xs font-mono mb-1">
@@ -66,7 +62,7 @@ export function Education() {
                   <p className="text-sm font-semibold text-white">
                     {educationData.institution}
                   </p>
-                  <span className="text-[10px] text-amber-300/80 font-mono">[Editable placeholder]</span>
+                  <span className="text-[10px] text-emerald-300/80 font-mono">College</span>
                 </div>
               </div>
 
@@ -80,7 +76,7 @@ export function Education() {
                   <p className="text-sm font-semibold text-white">
                     {educationData.group}
                   </p>
-                  <span className="text-[10px] text-amber-300/80 font-mono">[To be confirmed]</span>
+                  <span className="text-[10px] text-emerald-300/80 font-mono">Stream</span>
                 </div>
               </div>
 
@@ -94,7 +90,21 @@ export function Education() {
                   <p className="text-sm font-semibold text-white">
                     {educationData.passingYear}
                   </p>
-                  <span className="text-[10px] text-amber-300/80 font-mono">[To be provided]</span>
+                  <span className="text-[10px] text-emerald-300/80 font-mono">HSC completed</span>
+                </div>
+              </div>
+
+              {/* Field 4: GPA */}
+              <div className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800 flex flex-col justify-between">
+                <div className="flex items-center gap-2 text-slate-400 text-xs font-mono mb-1">
+                  <Award className="w-3.5 h-3.5 text-violet-400" />
+                  <span>GPA</span>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-white">
+                    {educationData.gpa}
+                  </p>
+                  <span className="text-[10px] text-emerald-300/80 font-mono">Result</span>
                 </div>
               </div>
             </div>

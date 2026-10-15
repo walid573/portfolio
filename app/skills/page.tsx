@@ -1,16 +1,9 @@
 import React from "react";
 import type { Metadata } from "next";
-import {
-  Cpu,
-  Layers,
-  Database,
-  Wrench,
-  Sparkles,
-  ChevronDown,
-} from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { TechIcon } from "@/components/TechIcon";
+import { SkillProgressBar } from "@/components/SkillProgressBar";
 
 export const metadata: Metadata = {
   title: "My Technical Skills | Mohammad Walid — Full-Stack Web Developer",
@@ -159,7 +152,7 @@ export default function SkillsPage() {
           {/* Section Heading: TECHNICAL EXPERTISE */}
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 text-xs font-mono text-violet-400 mb-2 tracking-wider">
-              <span>// TECHNICAL EXPERTISE</span>
+              <span>{"//"} TECHNICAL EXPERTISE</span>
             </div>
           </div>
 
@@ -177,7 +170,7 @@ export default function SkillsPage() {
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3.5 sm:gap-4">
-              {frontendSkills.map((skill) => (
+              {frontendSkills.map((skill, index) => (
                 <div
                   key={skill.name}
                   className="rounded-2xl p-4 sm:p-5 bg-[#090b14]/85 backdrop-blur-md border border-white/[0.08] hover:border-violet-500/40 hover:-translate-y-1 transition-all flex flex-col justify-between"
@@ -190,9 +183,12 @@ export default function SkillsPage() {
                     </div>
                   </div>
                   {/* Subtle Tech Progress Bar */}
-                  <div className="w-full h-1 bg-white/5 rounded-full overflow-hidden mt-2">
-                    <div className={`h-full rounded-full ${skill.barColor}`} style={{ width: "90%" }} />
-                  </div>
+                  <SkillProgressBar
+                    colorClass={skill.barColor}
+                    width="90%"
+                    delay={index * 80}
+                    lightColor={skill.name === "Next.js" ? "#000000" : undefined}
+                  />
                 </div>
               ))}
             </div>
@@ -212,7 +208,7 @@ export default function SkillsPage() {
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3.5 sm:gap-4">
-              {backendSkills.map((skill) => (
+              {backendSkills.map((skill, index) => (
                 <div
                   key={skill.name}
                   className="rounded-2xl p-4 sm:p-5 bg-[#090b14]/85 backdrop-blur-md border border-white/[0.08] hover:border-cyan-500/40 hover:-translate-y-1 transition-all flex flex-col justify-between"
@@ -224,9 +220,7 @@ export default function SkillsPage() {
                       <p className="text-[10px] text-slate-400 font-mono mt-0.5">{skill.categoryTag}</p>
                     </div>
                   </div>
-                  <div className="w-full h-1 bg-white/5 rounded-full overflow-hidden mt-2">
-                    <div className={`h-full rounded-full ${skill.barColor}`} style={{ width: "85%" }} />
-                  </div>
+                  <SkillProgressBar colorClass={skill.barColor} width="85%" delay={index * 80} />
                 </div>
               ))}
             </div>
@@ -246,7 +240,7 @@ export default function SkillsPage() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4">
-              {databaseSkills.map((skill) => (
+              {databaseSkills.map((skill, index) => (
                 <div
                   key={skill.name}
                   className="rounded-2xl p-4 sm:p-5 bg-[#090b14]/85 backdrop-blur-md border border-white/[0.08] hover:border-emerald-500/40 hover:-translate-y-1 transition-all flex flex-col justify-between"
@@ -258,9 +252,7 @@ export default function SkillsPage() {
                       <p className="text-[10px] text-slate-400 font-mono mt-0.5">{skill.categoryTag}</p>
                     </div>
                   </div>
-                  <div className="w-full h-1 bg-white/5 rounded-full overflow-hidden mt-2">
-                    <div className={`h-full rounded-full ${skill.barColor}`} style={{ width: "85%" }} />
-                  </div>
+                  <SkillProgressBar colorClass={skill.barColor} width="85%" delay={index * 80} />
                 </div>
               ))}
             </div>
@@ -280,7 +272,7 @@ export default function SkillsPage() {
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3.5 sm:gap-4">
-              {toolsSkills.map((skill) => (
+              {toolsSkills.map((skill, index) => (
                 <div
                   key={skill.name}
                   className="rounded-2xl p-4 sm:p-5 bg-[#090b14]/85 backdrop-blur-md border border-white/[0.08] hover:border-amber-500/40 hover:-translate-y-1 transition-all flex flex-col justify-between"
@@ -292,9 +284,7 @@ export default function SkillsPage() {
                       <p className="text-[10px] text-slate-400 font-mono mt-0.5">{skill.categoryTag}</p>
                     </div>
                   </div>
-                  <div className="w-full h-1 bg-white/5 rounded-full overflow-hidden mt-2">
-                    <div className={`h-full rounded-full ${skill.barColor}`} style={{ width: "88%" }} />
-                  </div>
+                  <SkillProgressBar colorClass={skill.barColor} width="88%" delay={index * 80} />
                 </div>
               ))}
             </div>

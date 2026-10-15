@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, Cpu } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { TechIcon } from "./TechIcon";
 
 interface TechItem {
@@ -28,9 +28,9 @@ const technologies: TechItem[] = [
 
 export function HomeTechGrid() {
   return (
-    <section id="tech-preview" aria-label="Technologies Section" className="relative py-20 lg:py-28 overflow-hidden">
+    <section id="tech-preview" aria-label="Technologies Section" className="home-tech-section relative py-20 lg:py-28 overflow-hidden">
       {/* Ambient background glow */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+      <div className="home-tech-ambient absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute top-1/2 right-1/4 w-[450px] h-[450px] rounded-full bg-indigo-600/10 blur-[140px]" />
         <div className="absolute inset-0 bg-dot-grid opacity-20" />
       </div>
@@ -54,7 +54,7 @@ export function HomeTechGrid() {
           {technologies.map((tech) => (
             <div
               key={tech.name}
-              className="group relative flex flex-col items-center justify-center p-6 rounded-2xl bg-[#0a0d14]/90 backdrop-blur-md border border-white/[0.07] hover:border-violet-500/30 hover:bg-[#0f1220] transition-all duration-300 hover:-translate-y-1"
+              className="home-tech-card group relative flex flex-col items-center justify-center p-6 rounded-2xl bg-[#0a0d14]/90 backdrop-blur-md border border-white/[0.07] hover:border-violet-500/30 hover:bg-[#0f1220] transition-all duration-300 hover:-translate-y-1"
             >
               {/* Icon */}
               <div className="w-11 h-11 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">

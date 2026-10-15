@@ -2,14 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  FolderGit2,
-  ExternalLink,
-  ChevronDown,
-  Sparkles,
-  ArrowRight,
-  Code2,
-} from "lucide-react";
+import { ExternalLink, ChevronDown } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { GithubIcon } from "@/components/SocialIcons";
@@ -35,7 +28,7 @@ export default function ProjectsPage() {
           {/* Header Section (Screenshot 1 Layout) */}
           <div className="text-center max-w-3xl mx-auto mb-16 pt-4">
             <div className="inline-flex items-center gap-2 text-xs font-mono text-violet-400 mb-3 tracking-wider">
-              <span>// PORTFOLIO</span>
+              <span>{"//"} PORTFOLIO</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-4">
@@ -76,7 +69,7 @@ export default function ProjectsPage() {
           {/* Curated Selection Header */}
           <div className="text-center mb-12">
             <div className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-2">
-              // CURATED SELECTION
+              {"//"} CURATED SELECTION
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
               Built with{" "}
@@ -91,7 +84,7 @@ export default function ProjectsPage() {
             {projectsData.map((project) => (
               <div
                 key={project.slug}
-                className="group rounded-3xl bg-[#090b14]/85 backdrop-blur-md border border-white/[0.08] hover:border-violet-500/40 transition-all duration-300 overflow-hidden flex flex-col justify-between shadow-xl hover:shadow-[0_12px_35px_-10px_rgba(139,92,246,0.25)] hover:-translate-y-1"
+                className="group relative rounded-3xl bg-[#090b14]/85 backdrop-blur-md border border-white/[0.08] hover:border-violet-500/40 transition-all duration-300 overflow-hidden flex flex-col justify-between shadow-xl hover:shadow-[0_12px_35px_-10px_rgba(139,92,246,0.25)] hover:-translate-y-1"
               >
                 {/* Image Banner */}
                 <div className="relative w-full aspect-[16/9] bg-slate-950 overflow-hidden border-b border-white/5">
@@ -136,7 +129,7 @@ export default function ProjectsPage() {
                     )}
                   </div>
 
-                  {/* Action Buttons: Code (glass) & Live Demo (gradient) & Case Study Link */}
+                  {/* External project actions */}
                   <div className="pt-3 border-t border-white/5 flex items-center justify-between gap-3">
                     <div className="flex items-center gap-2">
                       {/* Code Button */}
@@ -144,7 +137,7 @@ export default function ProjectsPage() {
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-200 bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 transition-colors"
+                        className="relative z-20 inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-200 bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 transition-colors"
                       >
                         <GithubIcon className="w-3.5 h-3.5" />
                         <span>Code</span>
@@ -155,23 +148,20 @@ export default function ProjectsPage() {
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold text-white bg-gradient-to-r from-violet-600 to-cyan-600 hover:from-violet-500 hover:to-cyan-500 transition-all shadow-md shadow-violet-600/20"
+                        className="relative z-20 inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold text-white bg-gradient-to-r from-violet-600 to-cyan-600 hover:from-violet-500 hover:to-cyan-500 transition-all shadow-md shadow-violet-600/20"
                       >
                         <span>Live Demo</span>
                         <ExternalLink className="w-3 h-3" />
                       </a>
                     </div>
 
-                    {/* Case Study Link */}
-                    <Link
-                      href={`/projects/${project.slug}`}
-                      className="text-xs font-mono font-medium text-violet-400 hover:text-cyan-300 transition-colors inline-flex items-center gap-1"
-                    >
-                      <span>Case Study</span>
-                      <ArrowRight className="w-3 h-3" />
-                    </Link>
                   </div>
                 </div>
+                <Link
+                  href={`/projects/${project.slug}`}
+                  aria-label={`View details for ${project.title}`}
+                  className="absolute inset-0 z-10 rounded-3xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-violet-400"
+                />
               </div>
             ))}
           </div>

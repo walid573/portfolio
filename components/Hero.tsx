@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, FileText } from "lucide-react";
 import { personalInfo } from "@/data/portfolio";
 import { ResumeModal } from "./ResumeModal";
@@ -45,7 +46,6 @@ export function Hero() {
                 <span className="bg-gradient-to-r from-violet-400 via-purple-300 to-indigo-400 bg-clip-text text-transparent">
                   Mohammad Walid
                 </span>{" "}
-                <span className="inline-block animate-wave origin-bottom-right">👋</span>
               </h1>
 
               {/* Supporting Subtitle */}
@@ -137,7 +137,7 @@ export function Hero() {
 
                 {/* Chip 5: // (bottom left) */}
                 <div className="absolute bottom-6 left-10 sm:left-8 z-20 px-2.5 py-1 rounded-lg glass border border-violet-500/30 text-violet-300 font-mono text-xs font-bold shadow-lg animate-blob-reverse">
-                  //
+                  {"//"}
                 </div>
 
                 {/* Chip 6: && (left middle) */}
@@ -146,23 +146,20 @@ export function Hero() {
                 </div>
 
                 {/* Center Circular Avatar Container */}
-                <div className="relative z-10 w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 rounded-full p-1 bg-gradient-to-tr from-violet-500 via-indigo-500 to-cyan-400 shadow-[0_0_35px_rgba(139,92,246,0.35)] group">
-                  <div className="relative w-full h-full rounded-full overflow-hidden bg-slate-950">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={personalInfo.profileImage}
-                      alt="Mohammad Walid — Full-Stack Developer"
-                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                      onError={(e) => {
-                        e.currentTarget.style.display = "none";
-                        e.currentTarget.nextElementSibling?.removeAttribute("style");
-                      }}
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-violet-900/60 to-slate-950 text-white font-mono font-bold text-2xl" style={{display:"none"}}>
-                      MW
-                    </div>
-                  </div>
+              <div className="relative z-10 w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full p-1 bg-gradient-to-tr from-violet-500 via-indigo-500 to-cyan-400 shadow-[0_0_35px_rgba(139,92,246,0.35)] group">
+                <div className="relative w-full h-full rounded-full overflow-hidden bg-slate-950">
+                  <Image
+                    src={personalInfo.profileImage}
+                    alt="Mohammad Walid — Full-Stack Developer"
+                    width={1024}
+                    height={935}
+                    quality={90}
+                    loading="eager"
+                    sizes="(max-width: 640px) 224px, (max-width: 768px) 288px, 320px"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
+              </div>
 
               </div>
             </div>

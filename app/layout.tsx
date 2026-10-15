@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { personalInfo } from "@/data/portfolio";
+import { MotionEnhancer } from "@/components/MotionEnhancer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -106,7 +107,10 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-[#040508] text-slate-100 antialiased selection:bg-violet-600 selection:text-white transition-colors duration-300">
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <MotionEnhancer />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

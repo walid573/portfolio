@@ -39,31 +39,6 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Quick Navigation Links */}
-          <nav aria-label="Footer Navigation" className="flex flex-wrap items-center justify-center gap-6 text-xs font-medium text-slate-400">
-            <Link href="/" className="hover:text-white transition-colors">
-              Home
-            </Link>
-            <Link href="/about" className="hover:text-white transition-colors">
-              About
-            </Link>
-            <Link href="/skills" className="hover:text-white transition-colors">
-              Skills
-            </Link>
-            <Link href="/projects" className="hover:text-white transition-colors">
-              Projects
-            </Link>
-            <Link href="/experience" className="hover:text-white transition-colors">
-              Experience
-            </Link>
-            <Link href="/education" className="hover:text-white transition-colors">
-              Education
-            </Link>
-            <Link href="/contact" className="hover:text-white transition-colors">
-              Contact
-            </Link>
-          </nav>
-
           {/* Social Icons & Back to Top */}
           <div className="flex items-center gap-3">
             <a

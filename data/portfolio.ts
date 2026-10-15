@@ -30,6 +30,7 @@ export interface EducationInfo {
   institution: string;
   group: string;
   passingYear: string;
+  gpa: string;
   status: string;
   notes: string;
   isPlaceholder: boolean;
@@ -177,13 +178,14 @@ export const skillsData: SkillItem[] = [
 
 export const educationData: EducationInfo = {
   qualification: "Higher Secondary Certificate (HSC)",
-  institution: "To be provided",
-  group: "To be confirmed",
-  passingYear: "To be provided",
+  institution: "Chattagram Cantonment Public College",
+  group: "Not specified",
+  passingYear: "2025",
+  gpa: "4.92",
   status: "Completed / College Level",
   notes:
-    "Currently pursuing continuous self-taught software engineering, full-stack web development curricula, and building practical web projects. Formal academic institutional details will be updated once verified.",
-  isPlaceholder: true,
+    "Passed HSC in 2025 after studying from 2023, with a GPA of 4.92.",
+  isPlaceholder: false,
 };
 
 export const journeyMilestones: JourneyMilestone[] = [

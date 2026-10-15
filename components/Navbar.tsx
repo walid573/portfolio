@@ -58,15 +58,12 @@ export function Navbar() {
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between"
         aria-label="Main Navigation"
       >
-        {/* Brand Logo */}
+        {/* Brand */}
         <Link
           href="/"
-          className="group flex items-center gap-2.5 focus:outline-none focus:ring-2 focus:ring-violet-400 rounded-lg p-1"
+          className="group flex items-center focus:outline-none focus-visible:underline focus-visible:underline-offset-4"
         >
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-600 to-indigo-600 flex items-center justify-center text-white font-mono font-bold text-xs shadow-md shadow-violet-600/30 group-hover:scale-105 transition-transform">
-            MW
-          </div>
-          <span className="font-bold text-base tracking-tight text-white group-hover:text-violet-300 transition-colors">
+          <span className="font-bold text-lg sm:text-xl tracking-tight text-white group-hover:text-violet-300 transition-colors">
             Mohammad <span className="text-violet-400">Walid</span>
           </span>
         </Link>
@@ -80,7 +77,7 @@ export function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`relative text-xs lg:text-sm font-medium transition-colors py-1 focus:outline-none focus:ring-2 focus:ring-violet-400 rounded-sm ${
+                  className={`relative text-xs lg:text-sm font-medium transition-colors py-1 focus:outline-none focus:ring-0 focus-visible:underline ${
                     active
                       ? "text-white"
                       : "text-slate-400 hover:text-white"
@@ -88,7 +85,7 @@ export function Navbar() {
                 >
                   {item.name}
                   {active && (
-                    <span className="absolute -bottom-1.5 left-0 right-0 h-[2px] bg-gradient-to-r from-violet-400 via-indigo-400 to-cyan-400 rounded-full" />
+                    <span className="nav-active-indicator absolute -bottom-1.5 left-0 right-0 h-[2px] bg-gradient-to-r from-violet-400 via-indigo-400 to-cyan-400 rounded-full" />
                   )}
                 </Link>
               );

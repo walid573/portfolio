@@ -191,8 +191,10 @@ export function HomeGitHub() {
                     </span>
                     <span className="font-semibold text-white">52%</span>
                   </div>
-                  <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
-                    <div className="h-full bg-[#3178c6] rounded-full" style={{ width: "52%" }} />
+                  <div className="github-language-track w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+                    <div className="github-language-fill relative h-full overflow-hidden bg-[#3178c6] rounded-full" style={{ width: "52%" }}>
+                      <span aria-hidden="true" className="github-language-shimmer" />
+                    </div>
                   </div>
                 </div>
 
@@ -204,8 +206,10 @@ export function HomeGitHub() {
                     </span>
                     <span className="font-semibold text-white">32%</span>
                   </div>
-                  <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
-                    <div className="h-full bg-[#f7df1e] rounded-full" style={{ width: "32%" }} />
+                  <div className="github-language-track w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+                    <div className="github-language-fill relative h-full overflow-hidden bg-[#f7df1e] rounded-full" style={{ width: "32%" }}>
+                      <span aria-hidden="true" className="github-language-shimmer" />
+                    </div>
                   </div>
                 </div>
 
@@ -217,8 +221,10 @@ export function HomeGitHub() {
                     </span>
                     <span className="font-semibold text-white">16%</span>
                   </div>
-                  <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
-                    <div className="h-full bg-[#38bdf8] rounded-full" style={{ width: "16%" }} />
+                  <div className="github-language-track w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+                    <div className="github-language-fill relative h-full overflow-hidden bg-[#38bdf8] rounded-full" style={{ width: "16%" }}>
+                      <span aria-hidden="true" className="github-language-shimmer" />
+                    </div>
                   </div>
                 </div>
               </div>
