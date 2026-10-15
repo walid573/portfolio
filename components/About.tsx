@@ -191,9 +191,6 @@ const developer = {
                 <h4 className="text-xs font-mono uppercase tracking-wider text-pink-300 font-semibold">
                   {hobbiesAndInterests.title}
                 </h4>
-                <span className="text-[10px] font-mono text-slate-400 bg-slate-800/80 px-2 py-0.5 rounded ml-auto">
-                  Editable Placeholder
-                </span>
               </div>
               <p className="text-xs text-slate-400 italic mb-3">
                 {hobbiesAndInterests.placeholderText}
