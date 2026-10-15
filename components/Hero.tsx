@@ -1,15 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, FileText, ChevronDown } from "lucide-react";
+import { ArrowRight, FileText } from "lucide-react";
 import { personalInfo } from "@/data/portfolio";
 import { ResumeModal } from "./ResumeModal";
 
 export function Hero() {
   const [resumeModalOpen, setResumeModalOpen] = useState(false);
-  const [imageError, setImageError] = useState(false);
 
   return (
     <>
@@ -150,21 +148,19 @@ export function Hero() {
                 {/* Center Circular Avatar Container */}
                 <div className="relative z-10 w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 rounded-full p-1 bg-gradient-to-tr from-violet-500 via-indigo-500 to-cyan-400 shadow-[0_0_35px_rgba(139,92,246,0.35)] group">
                   <div className="relative w-full h-full rounded-full overflow-hidden bg-slate-950">
-                    {!imageError ? (
-                      <Image
-                        src={personalInfo.profileImage}
-                        alt="Mohammad Walid — Full-Stack Developer"
-                        fill
-                        priority
-                        className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                        sizes="(max-width: 768px) 180px, 200px"
-                        onError={() => setImageError(true)}
-                      />
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-violet-900/60 to-slate-950 text-white font-mono font-bold text-2xl">
-                        MW
-                      </div>
-                    )}
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={personalInfo.profileImage}
+                      alt="Mohammad Walid — Full-Stack Developer"
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                      onError={(e) => {
+                        e.currentTarget.style.display = "none";
+                        e.currentTarget.nextElementSibling?.removeAttribute("style");
+                      }}
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-violet-900/60 to-slate-950 text-white font-mono font-bold text-2xl" style={{display:"none"}}>
+                      MW
+                    </div>
                   </div>
                 </div>
 

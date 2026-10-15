@@ -1,13 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
-import Image from "next/image";
+import React from "react";
 import Link from "next/link";
 import { Sparkles, ArrowRight, Rocket, Star, GraduationCap } from "lucide-react";
 import { personalInfo } from "@/data/portfolio";
 
 export function HomeAbout() {
-  const [imageError, setImageError] = useState(false);
 
   return (
     <section id="about-preview" aria-label="About Me Preview" className="relative py-20 lg:py-28 overflow-hidden">
@@ -32,20 +30,12 @@ export function HomeAbout() {
           <div className="lg:col-span-6 flex justify-center">
             <div className="relative w-full max-w-md aspect-[4/3] sm:aspect-[1.15/1] rounded-2xl p-1 bg-gradient-to-b from-violet-500/30 via-white/5 to-cyan-500/20 shadow-2xl shadow-violet-950/40">
               <div className="relative w-full h-full rounded-2xl overflow-hidden bg-slate-950 border border-white/[0.08]">
-                {!imageError ? (
-                  <Image
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
                     src={personalInfo.profileImage}
                     alt="Mohammad Walid — About Me"
-                    fill
-                    className="object-cover object-center hover:scale-105 transition-transform duration-700"
-                    sizes="(max-width: 768px) 100vw, 500px"
-                    onError={() => setImageError(true)}
+                    className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
                   />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-slate-900 text-violet-300 font-mono text-xl">
-                    Mohammad Walid
-                  </div>
-                )}
 
                 {/* Gradient vignette */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30 pointer-events-none" />
