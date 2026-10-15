@@ -29,7 +29,10 @@ export function MotionEnhancer() {
             const shimmer = fill?.querySelector<HTMLElement>(".github-language-shimmer");
 
             fill?.animate(
-              [{ transform: "scaleX(0)" }, { transform: "scaleX(1)" }],
+              [
+                { transform: "scaleX(0)", transformOrigin: "left" },
+                { transform: "scaleX(1)", transformOrigin: "left" },
+              ],
               { duration: 1800, delay, easing: "cubic-bezier(0.22, 1, 0.36, 1)", fill: "forwards" },
             );
             shimmer?.animate(

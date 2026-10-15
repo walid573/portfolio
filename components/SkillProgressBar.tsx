@@ -36,13 +36,19 @@ export function SkillProgressBar({ colorClass, width, delay, lightColor }: Skill
   return (
     <div ref={trackRef} className="w-full h-1 bg-white/5 rounded-full overflow-hidden mt-2" aria-hidden="true">
       <div
-        className={`skill-loading-bar${isVisible ? " skill-loading-bar--visible" : ""} h-full rounded-full ${colorClass}`}
+        className={`skill-loading-bar${isVisible ? " skill-loading-bar--visible" : ""} relative h-full overflow-hidden rounded-full ${colorClass}`}
         style={{
           width,
           animationDelay: `${delay}ms`,
           ...(theme === "light" && lightColor ? { backgroundColor: lightColor } : {}),
         }}
-      />
+      >
+        <span
+          aria-hidden="true"
+          className="skill-loading-bar-shimmer"
+          style={{ animationDelay: `${2000 + delay}ms` }}
+        />
+      </div>
     </div>
   );
 }

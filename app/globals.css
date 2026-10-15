@@ -244,6 +244,23 @@ a[class*="rounded-lg"]:active {
   animation: skill-bar-fill 2s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
+@keyframes skill-bar-shimmer {
+  from {
+    transform: translateX(-150%);
+  }
+  to {
+    transform: translateX(350%);
+  }
+}
+
+.skill-loading-bar-shimmer {
+  position: absolute;
+  inset: 0;
+  width: 38%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.72), transparent);
+  animation: skill-bar-shimmer 2.4s ease-in-out infinite;
+}
+
 .github-language-shimmer {
   position: absolute;
   inset: 0;
@@ -483,5 +500,9 @@ html.light code {
 
   .skill-loading-bar {
     transform: none;
+  }
+
+  .skill-loading-bar-shimmer {
+    animation: none;
   }
 }
