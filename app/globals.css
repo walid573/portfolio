@@ -336,6 +336,23 @@ html.light .home-tech-card:hover {
   border-color: rgba(15, 23, 42, 0.1) !important;
 }
 
+html.light .experience-cta {
+  background: linear-gradient(180deg, #ffffff, #f1f5f9) !important;
+  border-color: rgba(109, 40, 217, 0.2) !important;
+  box-shadow: 0 20px 45px -28px rgba(15, 23, 42, 0.28) !important;
+}
+
+html.light .experience-cta .experience-cta-secondary {
+  color: #334155 !important;
+  background-color: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+}
+
+html.light .experience-cta .experience-cta-secondary:hover {
+  color: #1e293b !important;
+  background-color: #e2e8f0 !important;
+}
+
 /* Light Theme Surface Backgrounds */
 html.light .bg-\[\#040508\],
 html.light .bg-\[\#05070b\],

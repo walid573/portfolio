@@ -141,7 +141,7 @@ export default function ContactPage() {
                     LOCATION
                   </span>
                   <span className="text-xs sm:text-sm font-medium text-white">
-                    Dhaka, Bangladesh • Available Remotely
+                    {personalInfo.location} • Available Remotely
                   </span>
                 </div>
               </div>

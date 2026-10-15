@@ -166,7 +166,7 @@ const developer = {
                     {"\n"}  <span className="text-indigo-300">learningApproach</span>:{" "}
                     <span className="text-emerald-300">&quot;Hands-on Building &amp; Iteration&quot;</span>,
                     {"\n"}  <span className="text-indigo-300">location</span>:{" "}
-                    <span className="text-emerald-300">&quot;Bangladesh&quot;</span>,
+                    <span className="text-emerald-300">&quot;Chittagong, Bangladesh&quot;</span>,
                     {"\n"}  <span className="text-indigo-300">openForOpportunities</span>:{" "}
                     <span className="text-cyan-400">true</span>
                     {"\n"}&#125;;

@@ -199,7 +199,7 @@ export default function ExperiencePage() {
           </div>
 
           {/* CTA Banner: Interested in working together? (Screenshot 2 Element) */}
-          <div className="rounded-3xl p-8 sm:p-10 bg-gradient-to-b from-[#0e1224] to-[#090b14] border border-violet-500/25 text-center max-w-3xl mx-auto shadow-2xl">
+          <div className="experience-cta rounded-3xl p-8 sm:p-10 bg-gradient-to-b from-[#0e1224] to-[#090b14] border border-violet-500/25 text-center max-w-3xl mx-auto shadow-2xl">
             <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-2">
               Interested in working together?
             </h3>
@@ -218,7 +218,7 @@ export default function ExperiencePage() {
 
               <Link
                 href="/projects"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-semibold text-sm text-slate-200 bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 transition-colors"
+                className="experience-cta-secondary inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-semibold text-sm text-slate-200 bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 transition-colors"
               >
                 <FileText className="w-4 h-4 text-violet-400" />
                 <span>Explore Projects</span>

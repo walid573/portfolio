@@ -60,7 +60,7 @@ export const personalInfo: PersonalInfo = {
   ],
   email: "mdwalid19833@gmail.com",
   phone: "Available upon request via email",
-  location: "Bangladesh",
+  location: "Chittagong, Bangladesh",
   github: "https://github.com/walid573",
   linkedin: "https://www.linkedin.com/in/mohammad-walid1/",
   profileImage: "/images/profile.jpg",
@@ -179,7 +179,7 @@ export const skillsData: SkillItem[] = [
 export const educationData: EducationInfo = {
   qualification: "Higher Secondary Certificate (HSC)",
   institution: "Chattagram Cantonment Public College",
-  group: "Not specified",
+  group: "Science",
   passingYear: "2025",
   gpa: "4.92",
   status: "Completed / College Level",
