@@ -6,7 +6,7 @@ import { Footer } from "@/components/Footer";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-[#07090e] text-slate-100 selection:bg-violet-600 selection:text-white flex flex-col">
+    <div className="min-h-screen bg-[#040508] text-slate-100 selection:bg-violet-600 selection:text-white flex flex-col">
       <Navbar />
 
       <main className="flex-1 flex items-center justify-center py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
@@ -44,7 +44,7 @@ export default function NotFound() {
             </Link>
 
             <Link
-              href="/#projects"
+              href="/projects"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl glass border border-white/10 text-slate-200 hover:text-white hover:bg-slate-800/60 transition-colors text-sm font-medium"
             >
               <ArrowLeft className="w-4 h-4" />

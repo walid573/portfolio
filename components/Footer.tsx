@@ -18,7 +18,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative border-t border-white/10 bg-[#05070b] pt-14 pb-10 overflow-hidden">
+    <footer className="relative border-t border-white/[0.08] bg-[#040508] pt-14 pb-10 overflow-hidden">
       {/* Background glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-24 bg-violet-600/10 blur-[90px] pointer-events-none" />
 
@@ -26,7 +26,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 pb-10 border-b border-white/5">
           {/* Brand & Tagline */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
-            <Link href="/#hero" className="flex items-center gap-2 mb-2">
+            <Link href="/" className="flex items-center gap-2 mb-2">
               <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-violet-600 to-indigo-600 flex items-center justify-center text-white font-mono font-bold text-xs shadow-md">
                 MW
               </div>
@@ -41,25 +41,25 @@ export function Footer() {
 
           {/* Quick Navigation Links */}
           <nav aria-label="Footer Navigation" className="flex flex-wrap items-center justify-center gap-6 text-xs font-medium text-slate-400">
-            <Link href="/#hero" className="hover:text-white transition-colors">
+            <Link href="/" className="hover:text-white transition-colors">
               Home
             </Link>
-            <Link href="/#about" className="hover:text-white transition-colors">
+            <Link href="/about" className="hover:text-white transition-colors">
               About
             </Link>
-            <Link href="/#skills" className="hover:text-white transition-colors">
+            <Link href="/skills" className="hover:text-white transition-colors">
               Skills
             </Link>
-            <Link href="/#education" className="hover:text-white transition-colors">
-              Education
-            </Link>
-            <Link href="/#experience" className="hover:text-white transition-colors">
-              Experience
-            </Link>
-            <Link href="/#projects" className="hover:text-white transition-colors">
+            <Link href="/projects" className="hover:text-white transition-colors">
               Projects
             </Link>
-            <Link href="/#contact" className="hover:text-white transition-colors">
+            <Link href="/experience" className="hover:text-white transition-colors">
+              Experience
+            </Link>
+            <Link href="/education" className="hover:text-white transition-colors">
+              Education
+            </Link>
+            <Link href="/contact" className="hover:text-white transition-colors">
               Contact
             </Link>
           </nav>
@@ -105,7 +105,7 @@ export function Footer() {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400 text-center sm:text-left">
           <p>© {currentYear} {personalInfo.name}. All rights reserved.</p>
           <div className="flex items-center gap-2">
-            <span>Built with Next.js App Router, TypeScript &amp; Tailwind CSS</span>
+            <span>Built with Next.js App Router, React 19, TypeScript &amp; Tailwind CSS</span>
           </div>
         </div>
       </div>

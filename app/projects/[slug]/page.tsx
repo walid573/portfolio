@@ -72,7 +72,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
   const nextProject = currentIndex < projectsData.length - 1 ? projectsData[currentIndex + 1] : null;
 
   return (
-    <div className="min-h-screen bg-[#07090e] text-slate-100 selection:bg-violet-600 selection:text-white flex flex-col">
+    <div className="min-h-screen bg-[#040508] text-slate-100 selection:bg-violet-600 selection:text-white flex flex-col">
       <Navbar />
 
       <main className="flex-1 pt-28 pb-20">
@@ -87,7 +87,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
           {/* Back Navigation Button */}
           <div className="mb-8">
             <Link
-              href="/#projects"
+              href="/projects"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-xl glass border border-white/10 text-xs sm:text-sm font-medium text-slate-300 hover:text-white hover:border-violet-500/40 transition-all focus:outline-none focus:ring-2 focus:ring-violet-400 group"
             >
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />

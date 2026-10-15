@@ -1,26 +1,24 @@
 import React from "react";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
-import { About } from "@/components/About";
-import { Skills } from "@/components/Skills";
-import { Education } from "@/components/Education";
-import { Experience } from "@/components/Experience";
-import { Projects } from "@/components/Projects";
-import { Contact } from "@/components/Contact";
+import { HomeAbout } from "@/components/HomeAbout";
+import { HomeTechGrid } from "@/components/HomeTechGrid";
+import { HomeGitHub } from "@/components/HomeGitHub";
 import { Footer } from "@/components/Footer";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-[#07090e] text-slate-100 selection:bg-violet-600 selection:text-white flex flex-col">
+    <div className="min-h-screen bg-[#040508] text-slate-100 selection:bg-violet-600 selection:text-white flex flex-col relative">
+      {/* Background with fine square grid and hero ambient glow */}
+      <div className="fixed inset-0 pointer-events-none z-0 bg-grid-pattern opacity-40" />
+      <div className="fixed inset-0 pointer-events-none z-0 bg-radial-hero-glow" />
+
       <Navbar />
-      <main className="flex-1">
+      <main className="flex-1 relative z-10">
         <Hero />
-        <About />
-        <Skills />
-        <Education />
-        <Experience />
-        <Projects />
-        <Contact />
+        <HomeAbout />
+        <HomeTechGrid />
+        <HomeGitHub />
       </main>
       <Footer />
     </div>
