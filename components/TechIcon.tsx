@@ -95,6 +95,71 @@ export function TechIcon({ name, className = "w-5 h-5", size = 20 }: TechIconPro
         </svg>
       );
 
+    case "nodejs":
+    case "node":
+      return (
+        <svg viewBox="0 0 256 288" width={size} height={size} className={className}>
+          <path
+            d="M128 0L9 68.6v150.8L128 288l119-68.6V68.6L128 0zm97.7 206.5L128 262.8l-97.7-56.3V94.2L128 37.9l97.7 56.3v112.3z"
+            fill="#5FA04E"
+          />
+          <path
+            d="M128 65.5L46.4 112.6v94.2L128 254l81.6-47.2v-94.2L128 65.5zm61.2 122.5L128 223.1l-61.2-35.1v-70.2L128 82.7l61.2 35.1v70.2z"
+            fill="#83CD29"
+          />
+        </svg>
+      );
+
+    case "express":
+    case "expressjs":
+      return (
+        <svg viewBox="0 0 256 256" width={size} height={size} className={className}>
+          <rect width="256" height="256" rx="36" fill="#18181b" />
+          <path
+            d="M48 128c0-44.183 35.817-80 80-80s80 35.817 80 80-35.817 80-80 80-80-35.817-80-80z"
+            fill="none"
+            stroke="#ffffff"
+            strokeWidth="12"
+            strokeDasharray="4 8"
+            opacity="0.3"
+          />
+          <text
+            x="128"
+            y="142"
+            textAnchor="middle"
+            fill="#ffffff"
+            fontSize="46"
+            fontWeight="800"
+            fontFamily="system-ui, -apple-system, sans-serif"
+            letterSpacing="-1px"
+          >
+            express
+          </text>
+          <text
+            x="128"
+            y="178"
+            textAnchor="middle"
+            fill="#8b5cf6"
+            fontSize="18"
+            fontWeight="700"
+            fontFamily="monospace"
+          >
+            .JS
+          </text>
+        </svg>
+      );
+
+    case "tailwind":
+    case "tailwindcss":
+      return (
+        <svg viewBox="0 0 256 154" width={size} height={size} className={className}>
+          <path
+            d="M128 0C93.867 0 72.533 17.067 64 51.2 76.8 34.133 91.733 27.733 108.8 32c9.736 2.434 16.697 9.499 24.401 17.318C145.753 62.001 161.43 77.867 192 77.867c34.133 0 55.467-17.067 64-51.2-12.8 17.067-27.733 23.467-44.8 19.2-9.736-2.434-16.697-9.499-24.401-17.318C174.247 15.866 158.57 0 128 0zM64 76.8C29.867 76.8 8.533 93.867 0 128c12.8-17.067 27.733-23.467 44.8-19.2 9.736 2.434 16.697 9.499 24.401 17.318C81.753 138.801 97.43 154.667 128 154.667c34.133 0 55.467-17.067 64-51.2-12.8 17.067-27.733 23.467-44.8 19.2-9.736-2.434-16.697-9.499-24.401-17.318C110.247 92.666 94.57 76.8 64 76.8z"
+            fill="#38BDF8"
+          />
+        </svg>
+      );
+
     case "html5":
     case "html":
       return (
@@ -129,67 +194,23 @@ export function TechIcon({ name, className = "w-5 h-5", size = 20 }: TechIconPro
         </svg>
       );
 
-    case "tailwind":
-    case "tailwindcss":
-      return (
-        <svg viewBox="0 0 256 154" width={size} height={size} className={className}>
-          <path
-            d="M128 0C93.867 0 72.533 17.067 64 51.2 76.8 34.133 91.733 27.733 108.8 32c9.736 2.434 16.697 9.499 24.401 17.318C145.753 62.001 161.43 77.867 192 77.867c34.133 0 55.467-17.067 64-51.2-12.8 17.067-27.733 23.467-44.8 19.2-9.736-2.434-16.697-9.499-24.401-17.318C174.247 15.866 158.57 0 128 0zM64 76.8C29.867 76.8 8.533 93.867 0 128c12.8-17.067 27.733-23.467 44.8-19.2 9.736 2.434 16.697 9.499 24.401 17.318C81.753 138.801 97.43 154.667 128 154.667c34.133 0 55.467-17.067 64-51.2-12.8 17.067-27.733 23.467-44.8 19.2-9.736-2.434-16.697-9.499-24.401-17.318C110.247 92.666 94.57 76.8 64 76.8z"
-            fill="#38BDF8"
-          />
-        </svg>
-      );
-
-    case "nodejs":
-    case "node":
-      return (
-        <svg viewBox="0 0 256 288" width={size} height={size} className={className}>
-          <path
-            d="M128 0L9 68.6v150.8L128 288l119-68.6V68.6L128 0zm97.7 206.5L128 262.8l-97.7-56.3V94.2L128 37.9l97.7 56.3v112.3z"
-            fill="#5FA04E"
-          />
-          <path
-            d="M128 65.5L46.4 112.6v94.2L128 254l81.6-47.2v-94.2L128 65.5zm61.2 122.5L128 223.1l-61.2-35.1v-70.2L128 82.7l61.2 35.1v70.2z"
-            fill="#83CD29"
-          />
-        </svg>
-      );
-
-    case "express":
-    case "expressjs":
-      return (
-        <svg viewBox="0 0 24 24" width={size} height={size} className={className} fill="none">
-          <rect width="24" height="24" rx="4" fill="#1e293b" />
-          <text
-            x="12"
-            y="16"
-            textAnchor="middle"
-            fill="#f8fafc"
-            fontSize="10"
-            fontWeight="bold"
-            fontFamily="monospace"
-          >
-            ex
-          </text>
-        </svg>
-      );
-
     case "mongodb":
     case "mongo":
       return (
         <svg viewBox="0 0 256 550" width={size} height={size} className={className}>
+          {/* Official MongoDB Leaf */}
           <path
             d="M127.5 0C127.5 0 35.7 122.3 35.7 268.2c0 102.7 63.6 195.3 91.8 245.9 2.4 4.3 6.9 7 11.9 7 5 0 9.5-2.7 11.9-7 28.2-50.6 91.8-143.2 91.8-245.9C243.1 122.3 127.5 0 127.5 0z"
-            fill="#47A248"
+            fill="#13AA52"
           />
           <path
             d="M127.5 0v521.1c5 0 9.5-2.7 11.9-7 28.2-50.6 91.8-143.2 91.8-245.9C231.2 122.3 127.5 0 127.5 0z"
-            fill="#499D4A"
+            fill="#116149"
           />
           <path
             d="M127.5 448.2c-1.3 0-2.6-.5-3.6-1.5-12.7-12.8-59.5-64.7-59.5-168.1 0-77.9 44.5-144.1 63.1-168.1v337.7z"
             fill="#FFFFFF"
-            opacity="0.3"
+            opacity="0.35"
           />
         </svg>
       );
@@ -229,9 +250,17 @@ export function TechIcon({ name, className = "w-5 h-5", size = 20 }: TechIconPro
     case "restapi":
     case "api":
       return (
-        <svg viewBox="0 0 24 24" width={size} height={size} className={className} fill="none" stroke="currentColor" strokeWidth="2">
-          <circle cx="12" cy="12" r="3" stroke="#8B5CF6" />
-          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" stroke="#C084FC" />
+        <svg viewBox="0 0 256 256" width={size} height={size} className={className}>
+          <rect width="256" height="256" rx="36" fill="#1e1b4b" />
+          <path
+            d="M58 88h140M58 128h140M58 168h140"
+            stroke="#a855f7"
+            strokeWidth="12"
+            strokeLinecap="round"
+          />
+          <circle cx="98" cy="88" r="16" fill="#06b6d4" />
+          <circle cx="158" cy="128" r="16" fill="#8b5cf6" />
+          <circle cx="118" cy="168" r="16" fill="#ec4899" />
         </svg>
       );
 

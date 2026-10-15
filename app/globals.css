@@ -16,6 +16,15 @@ html {
   color-scheme: dark;
 }
 
+html.light {
+  color-scheme: light;
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --muted: #475569;
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --border-subtle: rgba(0, 0, 0, 0.08);
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -68,7 +77,7 @@ body {
   box-shadow: 0 12px 35px -10px rgba(124, 58, 237, 0.2);
 }
 
-/* Gradient Text matching the Reference Screenshot */
+/* Gradient Text */
 .gradient-text {
   background: linear-gradient(135deg, #a855f7 0%, #8b5cf6 45%, #06b6d4 100%);
   -webkit-background-clip: text;
@@ -87,7 +96,7 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-/* Fine Square Grid Background matching Screenshot */
+/* Fine Square Grid Background */
 .bg-grid-pattern {
   background-size: 44px 44px;
   background-image: 
@@ -175,6 +184,163 @@ body {
 
 .animate-pulse-subtle {
   animation: pulse-subtle 4s ease-in-out infinite;
+}
+
+/* ==========================================================
+   LIGHT MODE STYLES
+   ========================================================== */
+html.light body {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+html.light ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+html.light ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+html.light .bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px) !important;
+}
+
+html.light .bg-radial-hero-glow {
+  background: radial-gradient(circle 550px at 50% 160px, rgba(139, 92, 246, 0.12), transparent 70%) !important;
+}
+
+html.light .glass {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+html.light .glass-strong {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 10px 30px -4px rgba(0, 0, 0, 0.08) !important;
+}
+
+html.light .glass-card {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04) !important;
+}
+
+html.light .glass-card:hover {
+  background: rgba(255, 255, 255, 1) !important;
+  border-color: rgba(139, 92, 246, 0.4) !important;
+  box-shadow: 0 12px 30px -4px rgba(139, 92, 246, 0.15) !important;
+}
+
+/* Light Theme Surface Backgrounds */
+html.light .bg-\[\#040508\],
+html.light .bg-\[\#05070b\],
+html.light .bg-\[\#07090e\],
+html.light .bg-\[\#090b14\],
+html.light .bg-\[\#090b14\]\/75,
+html.light .bg-\[\#090b14\]\/80,
+html.light .bg-\[\#090b14\]\/85,
+html.light .bg-\[\#090b14\]\/90,
+html.light .bg-\[\#0a0c16\],
+html.light .bg-\[\#0a0c16\]\/80,
+html.light .bg-\[\#0a0c16\]\/90,
+html.light .bg-\[\#0b0d18\]\/80,
+html.light .bg-\[\#0d101d\],
+html.light .bg-\[\#0d1020\],
+html.light .bg-\[\#0e1120\],
+html.light .bg-\[\#0e1224\],
+html.light .bg-\[\#0f1222\],
+html.light .bg-\[\#111424\],
+html.light .bg-slate-950,
+html.light .bg-slate-900\/60,
+html.light .bg-slate-900\/80,
+html.light .bg-slate-950\/70,
+html.light .bg-slate-950\/80,
+html.light .bg-slate-950\/85 {
+  background-color: #ffffff !important;
+}
+
+html.light header {
+  background-color: rgba(255, 255, 255, 0.88) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04) !important;
+}
+
+html.light footer {
+  background-color: #f1f5f9 !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Light Mode Typography Adjustments */
+html.light .text-white {
+  color: #0f172a !important;
+}
+
+html.light .text-slate-100 {
+  color: #0f172a !important;
+}
+
+html.light .text-slate-200 {
+  color: #1e293b !important;
+}
+
+html.light .text-slate-300 {
+  color: #334155 !important;
+}
+
+html.light .text-slate-400 {
+  color: #475569 !important;
+}
+
+html.light .text-slate-500 {
+  color: #64748b !important;
+}
+
+/* Light Mode Borders */
+html.light .border-white\/\[0\.08\],
+html.light .border-white\/\[0\.07\],
+html.light .border-white\/10,
+html.light .border-white\/15,
+html.light .border-white\/20,
+html.light .border-white\/5,
+html.light .border-slate-800,
+html.light .border-slate-700\/60 {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+html.light .bg-white\/\[0\.04\],
+html.light .bg-white\/\[0\.05\],
+html.light .bg-white\/\[0\.03\],
+html.light .bg-white\/\[0\.02\],
+html.light .bg-white\/5,
+html.light .bg-white\/10 {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Inputs and Forms in Light Mode */
+html.light input,
+html.light textarea {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* Code Snippet & Terminal Dark styling preservation */
+html.light .font-mono.bg-\[\#090b14\]\/90,
+html.light pre,
+html.light code {
+  color: #1e293b;
 }
 
 /* Reduced Motion Preference */

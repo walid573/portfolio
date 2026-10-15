@@ -3,9 +3,10 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Sun, Sparkles } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/SocialIcons";
 import { personalInfo } from "@/data/portfolio";
+import { useTheme } from "@/components/ThemeProvider";
 
 interface NavItem {
   name: string;
@@ -26,6 +27,7 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,7 +58,7 @@ export function Navbar() {
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between"
         aria-label="Main Navigation"
       >
-        {/* Brand Logo - Screenshot Style */}
+        {/* Brand Logo */}
         <Link
           href="/"
           className="group flex items-center gap-2.5 focus:outline-none focus:ring-2 focus:ring-violet-400 rounded-lg p-1"
@@ -69,7 +71,7 @@ export function Navbar() {
           </span>
         </Link>
 
-        {/* Desktop Navigation Links - Exact Screenshot Layout (Flat, no outer pill, with gradient underline) */}
+        {/* Desktop Navigation Links */}
         <div className="hidden md:flex items-center gap-7 lg:gap-8">
           <div className="flex items-center gap-6 lg:gap-7">
             {navItems.map((item) => {
@@ -93,7 +95,7 @@ export function Navbar() {
             })}
           </div>
 
-          {/* Far Right: Circular Theme / Status Icon (Screenshot Element) */}
+          {/* Far Right: GitHub + Functional Theme Toggle */}
           <div className="flex items-center gap-3 pl-2 border-l border-white/10">
             <a
               href={personalInfo.github}
@@ -104,24 +106,49 @@ export function Navbar() {
             >
               <GithubIcon className="w-4 h-4" />
             </a>
-            <div
-              title="Dark Mode Active"
-              className="w-8 h-8 rounded-full bg-white/[0.04] border border-white/10 flex items-center justify-center text-amber-400/90 shadow-sm"
+
+            {/* Functional Theme Toggle Button */}
+            <button
+              type="button"
+              onClick={toggleTheme}
+              aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
+              title={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
+              className="w-8 h-8 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 flex items-center justify-center transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-violet-400 shadow-sm"
             >
-              <Sun className="w-3.5 h-3.5" />
-            </div>
+              {theme === "dark" ? (
+                <Sun className="w-3.5 h-3.5 text-amber-400" />
+              ) : (
+                <Moon className="w-3.5 h-3.5 text-indigo-600" />
+              )}
+            </button>
           </div>
         </div>
 
         {/* Mobile Menu Button */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-          aria-expanded={mobileMenuOpen}
-          className="md:hidden p-2.5 rounded-xl glass border border-white/10 text-slate-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-violet-400"
-        >
-          {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-        </button>
+        <div className="md:hidden flex items-center gap-2">
+          {/* Mobile Theme Toggle */}
+          <button
+            type="button"
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className="p-2 rounded-xl glass border border-white/10 text-slate-300 hover:text-white"
+          >
+            {theme === "dark" ? (
+              <Sun className="w-4 h-4 text-amber-400" />
+            ) : (
+              <Moon className="w-4 h-4 text-indigo-600" />
+            )}
+          </button>
+
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={mobileMenuOpen}
+            className="p-2.5 rounded-xl glass border border-white/10 text-slate-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-violet-400"
+          >
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile Menu Drawer */}
