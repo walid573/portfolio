@@ -20,7 +20,7 @@ export function Projects() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass border border-violet-500/25 text-xs font-mono text-violet-300 mb-4">
             <FolderGit2 className="w-3.5 h-3.5 text-violet-400" />
-            <span>// 05. FEATURED WORK</span>
+            <span>{"//"} 05. FEATURED WORK</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
             Projects I&apos;ve <span className="gradient-text">Built</span>

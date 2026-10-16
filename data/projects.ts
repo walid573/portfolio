@@ -283,7 +283,7 @@ export const projectsData: ProjectData[] = [
       "Traditional fitness applications are frequently bloated with social feeds, paywalls, and complicated setup flows. FitLog strips away friction: users can pick an exercise, lock it into their daily plan, review target sets and calories, and stay focused entirely on their workout.",
     image: "/images/projects/fitlog.png",
     liveUrl: "https://fit-log-jade.vercel.app/",
-    githubUrl: "https://github.com/ProgrammingHero1/B14-A6-Fit-Log",
+    githubUrl: "https://github.com/walid573/fit-log",
     category: "Full-Stack Web App",
     featured: true,
     technologies: [

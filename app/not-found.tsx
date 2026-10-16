@@ -1,8 +1,10 @@
 import React from "react";
-import Link from "next/link";
 import { ArrowLeft, Home, Compass } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { Magnetic } from "@/components/effects/Magnetic";
+import { AdvancedButton } from "@/components/effects/AdvancedButton";
+import { ClickSpark } from "@/components/effects/ClickSpark";
 
 export default function NotFound() {
   return (
@@ -35,21 +37,29 @@ export default function NotFound() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <Link
-              href="/"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm text-white bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 transition-all shadow-lg shadow-violet-600/25"
-            >
-              <Home className="w-4 h-4" />
-              <span>Back to Homepage</span>
-            </Link>
+            <Magnetic>
+              <ClickSpark className="w-full sm:w-auto rounded-xl" sparkCount={12} color="167, 139, 250">
+                <AdvancedButton
+                  variant="aurora"
+                  href="/"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm text-white"
+                >
+                  <Home className="w-4 h-4" />
+                  <span>Back to Homepage</span>
+                </AdvancedButton>
+              </ClickSpark>
+            </Magnetic>
 
-            <Link
-              href="/projects"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl glass border border-white/10 text-slate-200 hover:text-white hover:bg-slate-800/60 transition-colors text-sm font-medium"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              <span>Explore Projects</span>
-            </Link>
+            <Magnetic strength={0.18}>
+              <AdvancedButton
+                variant="specular"
+                href="/projects"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-slate-200 hover:text-white text-sm font-medium"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                <span>Explore Projects</span>
+              </AdvancedButton>
+            </Magnetic>
           </div>
         </div>
       </main>

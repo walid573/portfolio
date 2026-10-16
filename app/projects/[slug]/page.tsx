@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -10,7 +9,6 @@ import {
   AlertTriangle,
   Lightbulb,
   Sparkles,
-  Layers,
   ArrowRight,
   Target,
   Wrench,
@@ -20,6 +18,10 @@ import { getProjectBySlug, getAllProjectSlugs, projectsData } from "@/data/proje
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { TechIcon } from "@/components/TechIcon";
+import { ParallaxImage } from "@/components/effects/ParallaxImage";
+import { Magnetic } from "@/components/effects/Magnetic";
+import { AdvancedButton } from "@/components/effects/AdvancedButton";
+import { ClickSpark } from "@/components/effects/ClickSpark";
 
 type ProjectPageProps = PageProps<"/projects/[slug]">;
 
@@ -117,38 +119,46 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
 
             {/* Quick Action CTA Buttons */}
             <div className="flex flex-wrap items-center gap-3.5">
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm text-white bg-gradient-to-r from-violet-600 via-indigo-600 to-cyan-600 hover:from-violet-500 hover:to-cyan-500 transition-all shadow-lg shadow-violet-600/25 hover:shadow-violet-600/40 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-violet-400"
-              >
-                <span>Open Live Application</span>
-                <ExternalLink className="w-4 h-4" />
-              </a>
+              <Magnetic>
+                <ClickSpark className="rounded-xl" sparkCount={14} color="167, 139, 250">
+                  <AdvancedButton
+                    variant="aurora"
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm text-white"
+                  >
+                    <span>Open Live Application</span>
+                    <ExternalLink className="w-4 h-4" />
+                  </AdvancedButton>
+                </ClickSpark>
+              </Magnetic>
 
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl font-semibold text-sm text-slate-200 glass border border-white/10 hover:border-violet-500/40 hover:text-white hover:bg-slate-800/60 transition-all hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-violet-400"
-              >
-                <GithubIcon className="w-4 h-4" />
-                <span>View Source Code</span>
-              </a>
+              <Magnetic strength={0.18}>
+                <ClickSpark className="rounded-xl" sparkCount={10} color="34, 211, 238">
+                  <AdvancedButton
+                    variant="specular"
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl font-semibold text-sm text-slate-200 hover:text-white"
+                  >
+                    <GithubIcon className="w-4 h-4" />
+                    <span>View Source Code</span>
+                  </AdvancedButton>
+                </ClickSpark>
+              </Magnetic>
             </div>
           </div>
 
           {/* Large Project Screenshot Hero Area */}
-          <div className="relative aspect-video w-full rounded-3xl overflow-hidden glass-strong border border-white/15 mb-14 shadow-2xl">
-            <Image
-              src={project.image}
-              alt={`${project.title} High-Resolution Preview`}
-              fill
-              priority
-              className="object-cover object-top"
-              sizes="(max-width: 1200px) 100vw, 1024px"
-            />
+          <ParallaxImage
+            src={project.image}
+            alt={`${project.title} High-Resolution Preview`}
+            sizes="(max-width: 1200px) 100vw, 1024px"
+            priority
+            className="aspect-video w-full rounded-3xl glass-strong border border-white/15 mb-14 shadow-2xl"
+          >
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
             <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl glass-strong border border-white/10 flex flex-wrap items-center justify-between gap-3">
               <div className="flex items-center gap-3">
@@ -168,7 +178,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                 Responsive Desktop / Mobile View
               </span>
             </div>
-          </div>
+          </ParallaxImage>
 
           {/* Quick Metrics Bar */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-14">

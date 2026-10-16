@@ -13,6 +13,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { personalInfo, hobbiesAndInterests } from "@/data/portfolio";
+import { TrueFocus } from "@/components/effects/TrueFocus";
 
 export function About() {
   const [copied, setCopied] = useState(false);
@@ -52,7 +53,7 @@ const developer = {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass border border-violet-500/25 text-xs font-mono text-violet-300 mb-4">
             <Terminal className="w-3.5 h-3.5 text-violet-400" />
-            <span>// 01. A LITTLE ABOUT ME</span>
+            <span>{"//"} 01. A LITTLE ABOUT ME</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-5">
             Crafting Digital Ideas Into <span className="gradient-text">Practical Reality</span>
@@ -78,11 +79,11 @@ const developer = {
                   <p className="text-xs text-slate-400 font-mono">Curiosity • Iteration • Practice</p>
                 </div>
               </div>
-              <div className="space-y-3.5 text-slate-300 text-sm sm:text-base leading-relaxed">
-                <p>{personalInfo.aboutIntro[0]}</p>
-                <p>{personalInfo.aboutIntro[1]}</p>
-                <p>{personalInfo.aboutIntro[2]}</p>
-              </div>
+              <TrueFocus className="space-y-3.5 text-slate-300 text-sm sm:text-base leading-relaxed">
+                <p data-focus>{personalInfo.aboutIntro[0]}</p>
+                <p data-focus>{personalInfo.aboutIntro[1]}</p>
+                <p data-focus>{personalInfo.aboutIntro[2]}</p>
+              </TrueFocus>
             </div>
 
             {/* Two Side-by-Side Focus Cards */}
@@ -147,7 +148,7 @@ const developer = {
               <div className="p-4 sm:p-5 font-mono text-xs leading-relaxed overflow-x-auto text-slate-300 bg-slate-950/70">
                 <pre>
                   <code>
-                    <span className="text-slate-500">// Developer Profile Data</span>
+                    <span className="text-slate-500">{"//"} Developer Profile Data</span>
                     {"\n"}
                     <span className="text-violet-400">const</span>{" "}
                     <span className="text-cyan-300">developer</span> = &#123;

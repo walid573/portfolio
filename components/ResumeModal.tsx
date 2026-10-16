@@ -3,6 +3,9 @@
 import React, { useEffect } from "react";
 import { X, FileText, Download, Mail, CheckCircle2, Clock } from "lucide-react";
 import { personalInfo } from "@/data/portfolio";
+import { Magnetic } from "@/components/effects/Magnetic";
+import { AdvancedButton } from "@/components/effects/AdvancedButton";
+import { ClickSpark } from "@/components/effects/ClickSpark";
 
 interface ResumeModalProps {
   isOpen: boolean;
@@ -90,21 +93,29 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
 
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row items-center gap-3">
-          <a
-            href={personalInfo.resumeUrl}
-            download="Mohammad-Walid-Resume.pdf"
-            className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-medium text-sm transition-all shadow-lg shadow-violet-600/25 focus:outline-none focus:ring-2 focus:ring-violet-400"
-          >
-            <Download className="w-4 h-4" />
-            <span>Download Placeholder</span>
-          </a>
-          <a
-            href={`mailto:${personalInfo.email}?subject=Resume%20Inquiry%20-%20Mohammad%20Walid`}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 text-slate-200 font-medium text-sm border border-slate-700 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400"
-          >
-            <Mail className="w-4 h-4" />
-            <span>Request via Email</span>
-          </a>
+          <Magnetic>
+            <ClickSpark className="w-full sm:w-auto rounded-xl" sparkCount={12} color="167, 139, 250">
+              <AdvancedButton
+                variant="aurora"
+                href={personalInfo.resumeUrl}
+                download="Mohammad-Walid-Resume.pdf"
+                className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-white font-medium text-sm"
+              >
+                <Download className="w-4 h-4" />
+                <span>Download Placeholder</span>
+              </AdvancedButton>
+            </ClickSpark>
+          </Magnetic>
+          <Magnetic strength={0.18}>
+            <AdvancedButton
+              variant="specular"
+              href={`mailto:${personalInfo.email}?subject=Resume%20Inquiry%20-%20Mohammad%20Walid`}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-slate-200 hover:text-white font-medium text-sm"
+            >
+              <Mail className="w-4 h-4" />
+              <span>Request via Email</span>
+            </AdvancedButton>
+          </Magnetic>
         </div>
       </div>
     </div>

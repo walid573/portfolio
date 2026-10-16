@@ -16,6 +16,13 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { GithubIcon, LinkedinIcon } from "@/components/SocialIcons";
 import { personalInfo } from "@/data/portfolio";
+import { SpotlightCard } from "@/components/effects/SpotlightCard";
+import { SplitText } from "@/components/effects/SplitText";
+import { Magnetic } from "@/components/effects/Magnetic";
+import { AdvancedButton } from "@/components/effects/AdvancedButton";
+import { DecryptedText } from "@/components/effects/DecryptedText";
+import { Beams } from "@/components/effects/Beams";
+import { Dock } from "@/components/effects/Dock";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -47,8 +54,11 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#040508] text-slate-100 selection:bg-violet-600 selection:text-white flex flex-col relative">
-      {/* Background with fine square grid and hero ambient glow */}
+    <div className="min-h-screen bg-[#040508] text-slate-100 selection:bg-violet-600 selection:text-white flex flex-col relative overflow-hidden">
+      {/* Background with fine square grid, hero glow, and Beams finale accent */}
+      <div className="backdrop-fade-y absolute inset-0 pointer-events-none z-0" aria-hidden="true">
+        <Beams />
+      </div>
       <div className="fixed inset-0 pointer-events-none z-0 bg-grid-pattern opacity-40" />
       <div className="fixed inset-0 pointer-events-none z-0 bg-radial-hero-glow" />
 
@@ -59,14 +69,16 @@ export default function ContactPage() {
           {/* Header Section (Screenshot 4 Layout) */}
           <div className="text-center max-w-3xl mx-auto mb-16 pt-4">
             <div className="inline-flex items-center gap-2 text-xs font-mono text-violet-400 mb-3 tracking-wider">
-              <span>// GET IN TOUCH</span>
+              <DecryptedText text="// GET IN TOUCH" speed={55} maxIterations={6} />
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-4">
               Let&apos;s{" "}
-              <span className="bg-gradient-to-r from-violet-400 via-indigo-300 to-cyan-400 bg-clip-text text-transparent">
-                Connect
-              </span>
+              <SplitText
+                text="Connect"
+                stagger={90}
+                wordClassName="bg-gradient-to-r from-violet-400 via-indigo-300 to-cyan-400 bg-clip-text text-transparent"
+              />
             </h1>
 
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-xl mx-auto mb-8">
@@ -94,9 +106,11 @@ export default function ContactPage() {
           <div className="text-center mb-14">
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-2">
               Let&apos;s build something{" "}
-              <span className="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
-                extraordinary
-              </span>
+              <SplitText
+                text="extraordinary"
+                stagger={60}
+                wordClassName="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent"
+              />
             </h2>
           </div>
 
@@ -109,7 +123,7 @@ export default function ContactPage() {
               </p>
 
               {/* Contact Info Card 1: Email */}
-              <div
+              <SpotlightCard
                 onClick={copyEmail}
                 className="p-4 rounded-2xl bg-[#090b14]/85 backdrop-blur-md border border-white/[0.08] hover:border-violet-500/40 transition-all cursor-pointer flex items-center justify-between group"
               >
@@ -129,10 +143,10 @@ export default function ContactPage() {
                 <div className="p-2 text-slate-400 group-hover:text-white transition-colors">
                   {copied ? <CheckCircle2 className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
                 </div>
-              </div>
+              </SpotlightCard>
 
               {/* Contact Info Card 2: Location */}
-              <div className="p-4 rounded-2xl bg-[#090b14]/85 backdrop-blur-md border border-white/[0.08] flex items-center gap-3.5">
+              <SpotlightCard className="p-4 rounded-2xl bg-[#090b14]/85 backdrop-blur-md border border-white/[0.08] flex items-center gap-3.5">
                 <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
                   <MapPin className="w-4 h-4" />
                 </div>
@@ -144,10 +158,10 @@ export default function ContactPage() {
                     {personalInfo.location} • Available Remotely
                   </span>
                 </div>
-              </div>
+              </SpotlightCard>
 
               {/* Contact Info Card 3: Availability */}
-              <div className="p-4 rounded-2xl bg-[#090b14]/85 backdrop-blur-md border border-white/[0.08] flex items-center gap-3.5">
+              <SpotlightCard className="p-4 rounded-2xl bg-[#090b14]/85 backdrop-blur-md border border-white/[0.08] flex items-center gap-3.5">
                 <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
                   <Clock className="w-4 h-4" />
                 </div>
@@ -160,20 +174,21 @@ export default function ContactPage() {
                     Open to opportunities &amp; collaboration
                   </span>
                 </div>
-              </div>
+              </SpotlightCard>
 
               {/* Social Links Row */}
               <div className="pt-2">
                 <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider block mb-2">
-                  // FIND ME ONLINE
+                  {"//"} FIND ME ONLINE
                 </span>
-                <div className="flex items-center gap-3">
+                <Dock className="flex items-center gap-3">
                   <a
                     href={personalInfo.github}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-3 rounded-xl bg-white/[0.04] border border-white/10 hover:border-violet-500/40 text-slate-300 hover:text-white transition-colors"
                     aria-label="GitHub Profile"
+                    data-dock-item
                   >
                     <GithubIcon className="w-4 h-4" />
                   </a>
@@ -183,6 +198,7 @@ export default function ContactPage() {
                     rel="noopener noreferrer"
                     className="p-3 rounded-xl bg-white/[0.04] border border-white/10 hover:border-violet-500/40 text-slate-300 hover:text-white transition-colors"
                     aria-label="LinkedIn Profile"
+                    data-dock-item
                   >
                     <LinkedinIcon className="w-4 h-4" />
                   </a>
@@ -190,10 +206,11 @@ export default function ContactPage() {
                     href={`mailto:${personalInfo.email}`}
                     className="p-3 rounded-xl bg-white/[0.04] border border-white/10 hover:border-violet-500/40 text-slate-300 hover:text-white transition-colors"
                     aria-label="Send Email"
+                    data-dock-item
                   >
                     <Mail className="w-4 h-4" />
                   </a>
-                </div>
+                </Dock>
               </div>
 
               {/* Quote Box (Screenshot 4 Element) */}
@@ -204,7 +221,7 @@ export default function ContactPage() {
 
             {/* Right Column: "Send a message" Form Card (Screenshot 4 Layout) */}
             <div className="lg:col-span-7">
-              <div className="rounded-3xl p-6 sm:p-8 bg-[#090b14]/90 backdrop-blur-md border border-white/[0.08] shadow-2xl">
+              <SpotlightCard className="rounded-3xl p-6 sm:p-8 bg-[#090b14]/90 backdrop-blur-md border border-white/[0.08] shadow-2xl">
                 <h3 className="text-lg sm:text-xl font-bold text-white mb-1">
                   Send a message
                 </h3>
@@ -261,25 +278,28 @@ export default function ContactPage() {
                   </div>
 
                   {/* Send Message Button (Gradient Pill) */}
-                  <button
-                    type="submit"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-xs sm:text-sm text-white bg-gradient-to-r from-violet-600 via-indigo-600 to-cyan-600 hover:from-violet-500 hover:to-cyan-500 transition-all shadow-lg shadow-violet-600/30 hover:scale-105"
-                  >
-                    <Send className="w-4 h-4" />
-                    <span>Send Message</span>
-                  </button>
+                  <Magnetic>
+                    <AdvancedButton
+                      variant="aurora"
+                      type="submit"
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-xs sm:text-sm text-white"
+                    >
+                      <Send className="w-4 h-4" />
+                      <span>Send Message</span>
+                    </AdvancedButton>
+                  </Magnetic>
 
                   <div className="flex items-center gap-1.5 text-xs text-slate-400 font-mono pt-1">
                     <span className="w-2 h-2 rounded-full bg-emerald-400" />
                     <span>Usually respond within 24 hours</span>
                   </div>
                 </form>
-              </div>
+              </SpotlightCard>
             </div>
           </div>
 
           {/* Bottom Banner (Screenshot 4 Element) */}
-          <div className="rounded-3xl p-8 sm:p-10 bg-[#090b14]/90 backdrop-blur-md border border-white/[0.08] text-center max-w-3xl mx-auto">
+          <SpotlightCard className="rounded-3xl p-8 sm:p-10 bg-[#090b14]/90 backdrop-blur-md border border-white/[0.08] text-center max-w-3xl mx-auto">
             <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
               Great things start with a{" "}
               <span className="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
@@ -298,7 +318,7 @@ export default function ContactPage() {
               <span className="text-slate-600">•</span>
               <span className="px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08]">TypeScript</span>
             </div>
-          </div>
+          </SpotlightCard>
         </div>
       </main>
 

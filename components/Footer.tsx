@@ -5,11 +5,14 @@ import Link from "next/link";
 import { Mail, ArrowUp } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/SocialIcons";
 import { personalInfo } from "@/data/portfolio";
+import { Dock } from "@/components/effects/Dock";
 
 export function Footer() {
+  // Stable initial year for prerendering; corrected on mount (see build note).
   const [currentYear, setCurrentYear] = useState(2026);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setCurrentYear(new Date().getFullYear());
   }, []);
 
@@ -40,12 +43,13 @@ export function Footer() {
           </div>
 
           {/* Social Icons & Back to Top */}
-          <div className="flex items-center gap-3">
+          <Dock className="flex items-center gap-3">
             <a
               href={personalInfo.github}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub Profile"
+              data-dock-item
               className="p-2.5 rounded-xl glass border border-white/10 text-slate-400 hover:text-white transition-colors"
             >
               <GithubIcon className="w-4 h-4" />
@@ -55,6 +59,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn Profile"
+              data-dock-item
               className="p-2.5 rounded-xl glass border border-white/10 text-slate-400 hover:text-white transition-colors"
             >
               <LinkedinIcon className="w-4 h-4" />
@@ -62,6 +67,7 @@ export function Footer() {
             <a
               href={`mailto:${personalInfo.email}`}
               aria-label="Send Email"
+              data-dock-item
               className="p-2.5 rounded-xl glass border border-white/10 text-slate-400 hover:text-white transition-colors"
             >
               <Mail className="w-4 h-4" />
@@ -69,11 +75,12 @@ export function Footer() {
             <button
               onClick={scrollToTop}
               aria-label="Scroll back to top"
+              data-dock-item
               className="p-2.5 rounded-xl glass-strong border border-violet-500/30 text-violet-300 hover:text-white hover:bg-violet-600/30 transition-all ml-2"
             >
               <ArrowUp className="w-4 h-4" />
             </button>
-          </div>
+          </Dock>
         </div>
 
         {/* Bottom Credits & Copyright */}

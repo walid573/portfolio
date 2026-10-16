@@ -3,7 +3,11 @@ import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { TechIcon } from "@/components/TechIcon";
-import { SkillProgressBar } from "@/components/SkillProgressBar";
+import { SpotlightCard } from "@/components/effects/SpotlightCard";
+import { SplitText } from "@/components/effects/SplitText";
+import { CountUp } from "@/components/effects/CountUp";
+import { SkillCard } from "@/components/effects/SkillCard";
+import { DecryptedText } from "@/components/effects/DecryptedText";
 
 export const metadata: Metadata = {
   title: "My Technical Skills | Mohammad Walid — Full-Stack Web Developer",
@@ -61,9 +65,12 @@ export default function SkillsPage() {
             <div className="lg:col-span-7 space-y-6">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.12]">
                 My Technical{" "}
-                <span className="bg-gradient-to-r from-violet-400 via-indigo-300 to-cyan-400 bg-clip-text text-transparent block">
-                  Skills
-                </span>
+                <SplitText
+                  text="Skills"
+                  stagger={90}
+                  className="block"
+                  wordClassName="bg-gradient-to-r from-violet-400 via-indigo-300 to-cyan-400 bg-clip-text text-transparent"
+                />
               </h1>
 
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-xl">
@@ -73,12 +80,16 @@ export default function SkillsPage() {
               {/* 3 Metric Stats Row (as shown in Screenshot 3) */}
               <div className="flex items-center gap-8 sm:gap-12 py-2">
                 <div>
-                  <div className="text-2xl font-bold font-mono text-violet-300">12+</div>
+                  <div className="text-2xl font-bold font-mono text-violet-300">
+                    <CountUp end={12} suffix="+" />
+                  </div>
                   <div className="text-[11px] text-slate-400 font-mono mt-0.5">Core Skills</div>
                 </div>
                 <div className="w-[1px] h-8 bg-white/10" />
                 <div>
-                  <div className="text-2xl font-bold font-mono text-cyan-300">4</div>
+                  <div className="text-2xl font-bold font-mono text-cyan-300">
+                    <CountUp end={4} />
+                  </div>
                   <div className="text-[11px] text-slate-400 font-mono mt-0.5">Categories</div>
                 </div>
                 <div className="w-[1px] h-8 bg-white/10" />
@@ -152,7 +163,7 @@ export default function SkillsPage() {
           {/* Section Heading: TECHNICAL EXPERTISE */}
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 text-xs font-mono text-violet-400 mb-2 tracking-wider">
-              <span>{"//"} TECHNICAL EXPERTISE</span>
+              <DecryptedText text="// TECHNICAL EXPERTISE" speed={55} maxIterations={6} />
             </div>
           </div>
 
@@ -171,25 +182,17 @@ export default function SkillsPage() {
 
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3.5 sm:gap-4">
               {frontendSkills.map((skill, index) => (
-                <div
+                <SkillCard
                   key={skill.name}
-                  className="rounded-2xl p-4 sm:p-5 bg-[#090b14]/85 backdrop-blur-md border border-white/[0.08] hover:border-violet-500/40 hover:-translate-y-1 transition-all flex flex-col justify-between"
-                >
-                  <div className="flex items-center gap-3 mb-3">
-                    <TechIcon name={skill.iconName} size={28} />
-                    <div>
-                      <h3 className="text-sm font-bold text-white leading-tight">{skill.name}</h3>
-                      <p className="text-[10px] text-slate-400 font-mono mt-0.5">{skill.categoryTag}</p>
-                    </div>
-                  </div>
-                  {/* Subtle Tech Progress Bar */}
-                  <SkillProgressBar
-                    colorClass={skill.barColor}
-                    width="90%"
-                    delay={index * 80}
-                    lightColor={skill.name === "Next.js" ? "#000000" : undefined}
-                  />
-                </div>
+                  name={skill.name}
+                  iconName={skill.iconName}
+                  categoryTag={skill.categoryTag}
+                  barColor={skill.barColor}
+                  hoverBorderClass="hover:border-violet-500/40"
+                  barWidth="90%"
+                  delay={index * 80}
+                  lightColor={skill.name === "Next.js" ? "#000000" : undefined}
+                />
               ))}
             </div>
           </div>
@@ -209,19 +212,16 @@ export default function SkillsPage() {
 
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3.5 sm:gap-4">
               {backendSkills.map((skill, index) => (
-                <div
+                <SkillCard
                   key={skill.name}
-                  className="rounded-2xl p-4 sm:p-5 bg-[#090b14]/85 backdrop-blur-md border border-white/[0.08] hover:border-cyan-500/40 hover:-translate-y-1 transition-all flex flex-col justify-between"
-                >
-                  <div className="flex items-center gap-3 mb-3">
-                    <TechIcon name={skill.iconName} size={28} />
-                    <div>
-                      <h3 className="text-sm font-bold text-white leading-tight">{skill.name}</h3>
-                      <p className="text-[10px] text-slate-400 font-mono mt-0.5">{skill.categoryTag}</p>
-                    </div>
-                  </div>
-                  <SkillProgressBar colorClass={skill.barColor} width="85%" delay={index * 80} />
-                </div>
+                  name={skill.name}
+                  iconName={skill.iconName}
+                  categoryTag={skill.categoryTag}
+                  barColor={skill.barColor}
+                  hoverBorderClass="hover:border-cyan-500/40"
+                  barWidth="85%"
+                  delay={index * 80}
+                />
               ))}
             </div>
           </div>
@@ -241,19 +241,16 @@ export default function SkillsPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4">
               {databaseSkills.map((skill, index) => (
-                <div
+                <SkillCard
                   key={skill.name}
-                  className="rounded-2xl p-4 sm:p-5 bg-[#090b14]/85 backdrop-blur-md border border-white/[0.08] hover:border-emerald-500/40 hover:-translate-y-1 transition-all flex flex-col justify-between"
-                >
-                  <div className="flex items-center gap-3 mb-3">
-                    <TechIcon name={skill.iconName} size={28} />
-                    <div>
-                      <h3 className="text-sm font-bold text-white leading-tight">{skill.name}</h3>
-                      <p className="text-[10px] text-slate-400 font-mono mt-0.5">{skill.categoryTag}</p>
-                    </div>
-                  </div>
-                  <SkillProgressBar colorClass={skill.barColor} width="85%" delay={index * 80} />
-                </div>
+                  name={skill.name}
+                  iconName={skill.iconName}
+                  categoryTag={skill.categoryTag}
+                  barColor={skill.barColor}
+                  hoverBorderClass="hover:border-emerald-500/40"
+                  barWidth="85%"
+                  delay={index * 80}
+                />
               ))}
             </div>
           </div>
@@ -273,25 +270,22 @@ export default function SkillsPage() {
 
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3.5 sm:gap-4">
               {toolsSkills.map((skill, index) => (
-                <div
+                <SkillCard
                   key={skill.name}
-                  className="rounded-2xl p-4 sm:p-5 bg-[#090b14]/85 backdrop-blur-md border border-white/[0.08] hover:border-amber-500/40 hover:-translate-y-1 transition-all flex flex-col justify-between"
-                >
-                  <div className="flex items-center gap-3 mb-3">
-                    <TechIcon name={skill.iconName} size={28} />
-                    <div>
-                      <h3 className="text-sm font-bold text-white leading-tight">{skill.name}</h3>
-                      <p className="text-[10px] text-slate-400 font-mono mt-0.5">{skill.categoryTag}</p>
-                    </div>
-                  </div>
-                  <SkillProgressBar colorClass={skill.barColor} width="88%" delay={index * 80} />
-                </div>
+                  name={skill.name}
+                  iconName={skill.iconName}
+                  categoryTag={skill.categoryTag}
+                  barColor={skill.barColor}
+                  hoverBorderClass="hover:border-amber-500/40"
+                  barWidth="88%"
+                  delay={index * 80}
+                />
               ))}
             </div>
           </div>
 
           {/* Bottom Philosophy Card (Screenshot 3 Element) */}
-          <div className="rounded-3xl p-8 sm:p-10 bg-[#090b14]/90 backdrop-blur-md border border-white/[0.08] text-center max-w-3xl mx-auto">
+          <SpotlightCard className="rounded-3xl p-8 sm:p-10 bg-[#090b14]/90 backdrop-blur-md border border-white/[0.08] text-center max-w-3xl mx-auto">
             <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
               Always learning, always evolving.
             </h3>
@@ -316,7 +310,7 @@ export default function SkillsPage() {
                 Tools &amp; Workflow
               </span>
             </div>
-          </div>
+          </SpotlightCard>
         </div>
       </main>
 

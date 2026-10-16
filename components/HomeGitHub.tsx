@@ -11,6 +11,11 @@ import {
 } from "lucide-react";
 import { GithubIcon } from "@/components/SocialIcons";
 import { personalInfo } from "@/data/portfolio";
+import { SpotlightCard } from "@/components/effects/SpotlightCard";
+import { DecryptedText } from "@/components/effects/DecryptedText";
+import { Magnetic } from "@/components/effects/Magnetic";
+import { AdvancedButton } from "@/components/effects/AdvancedButton";
+import { ClickSpark } from "@/components/effects/ClickSpark";
 
 export function HomeGitHub() {
   const [hoveredDay, setHoveredDay] = useState<string | null>(null);
@@ -83,7 +88,7 @@ export function HomeGitHub() {
       description: "A fitness and workout-planning application designed to help users organize and manage their fitness-related plans.",
       language: "TypeScript",
       langColor: "bg-[#3178c6]",
-      githubUrl: "https://github.com/walid573/Fit-Log",
+      githubUrl: "https://github.com/walid573/fit-log",
       liveUrl: "https://fit-log-jade.vercel.app/",
       caseStudyUrl: "/projects/fitlog",
     },
@@ -96,7 +101,7 @@ export function HomeGitHub() {
         <div className="text-center max-w-2xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-xs font-mono text-slate-300 mb-3">
             <GithubIcon className="w-3.5 h-3.5 text-violet-400" />
-            <span>github.com/walid573</span>
+            <DecryptedText text="github.com/walid573" speed={40} maxIterations={6} />
           </div>
 
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-2">
@@ -255,7 +260,7 @@ export function HomeGitHub() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {featuredRepos.map((repo) => (
-              <div
+              <SpotlightCard
                 key={repo.name}
                 className="group rounded-2xl p-5 bg-[#090b14]/85 backdrop-blur-md border border-white/[0.08] hover:border-violet-500/40 transition-all flex flex-col justify-between"
               >
@@ -306,23 +311,28 @@ export function HomeGitHub() {
                     </Link>
                   </div>
                 </div>
-              </div>
+              </SpotlightCard>
             ))}
           </div>
         </div>
 
         {/* View Profile Button */}
         <div className="text-center">
-          <a
-            href={personalInfo.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-violet-600 via-indigo-600 to-cyan-600 hover:from-violet-500 hover:to-cyan-500 transition-all shadow-md shadow-violet-600/20 hover:scale-105"
-          >
-            <GithubIcon className="w-4 h-4" />
-            <span>View GitHub Profile</span>
-            <ExternalLink className="w-3.5 h-3.5 ml-0.5" />
-          </a>
+          <Magnetic>
+            <ClickSpark className="rounded-full" sparkCount={14} color="167, 139, 250">
+              <AdvancedButton
+                variant="aurora"
+                href={personalInfo.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs sm:text-sm font-semibold text-white"
+              >
+                <GithubIcon className="w-4 h-4" />
+                <span>View GitHub Profile</span>
+                <ExternalLink className="w-3.5 h-3.5 ml-0.5" />
+              </AdvancedButton>
+            </ClickSpark>
+          </Magnetic>
         </div>
       </div>
     </section>

@@ -4,15 +4,18 @@ import React from "react";
 import Link from "next/link";
 import { Sparkles, ArrowRight, Rocket, Star, GraduationCap } from "lucide-react";
 import { personalInfo } from "@/data/portfolio";
+import { SpotlightCard } from "@/components/effects/SpotlightCard";
+import { CountUp } from "@/components/effects/CountUp";
+import { DecryptedText } from "@/components/effects/DecryptedText";
+import { ClickSpark } from "@/components/effects/ClickSpark";
 
 export function HomeAbout() {
 
   return (
     <section id="about-preview" aria-label="About Me Preview" className="relative py-20 lg:py-28 overflow-hidden">
       {/* Background Lighting */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+      <div className="backdrop-fade-y absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute top-1/2 left-1/4 w-[400px] h-[400px] rounded-full bg-violet-600/10 blur-[130px]" />
-        <div className="absolute inset-0 bg-dot-grid opacity-25" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -20,7 +23,7 @@ export function HomeAbout() {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full glass border border-violet-500/30 text-xs font-mono font-medium text-violet-300 tracking-wider uppercase mb-3">
             <Sparkles className="w-3.5 h-3.5 text-violet-400" />
-            <span>ABOUT ME</span>
+            <DecryptedText text="ABOUT ME" speed={60} maxIterations={6} />
           </div>
         </div>
 
@@ -74,7 +77,7 @@ export function HomeAbout() {
           {/* Right Column: Quote Card & 3 Stats Cards */}
           <div className="lg:col-span-6 space-y-6">
             {/* Quote Card */}
-            <div className="relative rounded-2xl p-6 sm:p-8 bg-[#0b0d18]/80 backdrop-blur-md border border-white/[0.08] shadow-xl group hover:border-violet-500/30 transition-colors">
+            <SpotlightCard className="relative rounded-2xl p-6 sm:p-8 bg-[#0b0d18]/80 backdrop-blur-md border border-white/[0.08] shadow-xl group hover:border-violet-500/30 transition-colors">
               {/* Giant Quotation Mark in Background */}
               <div
                 className="absolute top-2 right-4 text-7xl font-serif text-violet-500/10 select-none pointer-events-none"
@@ -101,42 +104,52 @@ export function HomeAbout() {
                   </Link>
                 </div>
               </div>
-            </div>
+            </SpotlightCard>
 
             {/* 3 Stat Cards (Screenshot Elements: 3+ Projects, 100% Dedicated, HSC College Level) */}
             <div className="grid grid-cols-3 gap-3 sm:gap-4">
               {/* Stat 1 */}
-              <div className="rounded-2xl p-4 bg-[#0a0c16]/80 backdrop-blur-md border border-white/[0.08] text-center hover:border-violet-500/30 transition-all hover:-translate-y-0.5">
-                <div className="w-7 h-7 mx-auto rounded-lg bg-violet-500/15 border border-violet-500/25 flex items-center justify-center text-violet-300 mb-2">
-                  <Rocket className="w-3.5 h-3.5" />
-                </div>
-                <div className="text-xl sm:text-2xl font-bold font-mono text-white">3+</div>
-                <div className="text-[10px] sm:text-xs text-slate-400 font-medium leading-tight mt-1">
-                  Projects Built
-                </div>
-              </div>
+              <ClickSpark className="rounded-2xl" sparkCount={8}>
+                <SpotlightCard className="h-full rounded-2xl p-4 bg-[#0a0c16]/80 backdrop-blur-md border border-white/[0.08] text-center hover:border-violet-500/30 transition-all hover:-translate-y-0.5">
+                  <div className="w-7 h-7 mx-auto rounded-lg bg-violet-500/15 border border-violet-500/25 flex items-center justify-center text-violet-300 mb-2">
+                    <Rocket className="w-3.5 h-3.5" />
+                  </div>
+                  <div className="text-xl sm:text-2xl font-bold font-mono text-white">
+                    <CountUp end={3} suffix="+" />
+                  </div>
+                  <div className="text-[10px] sm:text-xs text-slate-400 font-medium leading-tight mt-1">
+                    Projects Built
+                  </div>
+                </SpotlightCard>
+              </ClickSpark>
 
               {/* Stat 2 */}
-              <div className="rounded-2xl p-4 bg-[#0a0c16]/80 backdrop-blur-md border border-white/[0.08] text-center hover:border-violet-500/30 transition-all hover:-translate-y-0.5">
-                <div className="w-7 h-7 mx-auto rounded-lg bg-indigo-500/15 border border-indigo-500/25 flex items-center justify-center text-indigo-300 mb-2">
-                  <Star className="w-3.5 h-3.5" />
-                </div>
-                <div className="text-xl sm:text-2xl font-bold font-mono text-white">100%</div>
-                <div className="text-[10px] sm:text-xs text-slate-400 font-medium leading-tight mt-1">
-                  Dedicated &amp; Driven
-                </div>
-              </div>
+              <ClickSpark className="rounded-2xl" sparkCount={8}>
+                <SpotlightCard className="h-full rounded-2xl p-4 bg-[#0a0c16]/80 backdrop-blur-md border border-white/[0.08] text-center hover:border-violet-500/30 transition-all hover:-translate-y-0.5">
+                  <div className="w-7 h-7 mx-auto rounded-lg bg-indigo-500/15 border border-indigo-500/25 flex items-center justify-center text-indigo-300 mb-2">
+                    <Star className="w-3.5 h-3.5" />
+                  </div>
+                  <div className="text-xl sm:text-2xl font-bold font-mono text-white">
+                    <CountUp end={100} suffix="%" />
+                  </div>
+                  <div className="text-[10px] sm:text-xs text-slate-400 font-medium leading-tight mt-1">
+                    Dedicated &amp; Driven
+                  </div>
+                </SpotlightCard>
+              </ClickSpark>
 
               {/* Stat 3 */}
-              <div className="rounded-2xl p-4 bg-[#0a0c16]/80 backdrop-blur-md border border-white/[0.08] text-center hover:border-violet-500/30 transition-all hover:-translate-y-0.5">
-                <div className="w-7 h-7 mx-auto rounded-lg bg-cyan-500/15 border border-cyan-500/25 flex items-center justify-center text-cyan-300 mb-2">
-                  <GraduationCap className="w-3.5 h-3.5" />
+              <ClickSpark className="rounded-2xl" sparkCount={8}>
+                <div className="h-full rounded-2xl p-4 bg-[#0a0c16]/80 backdrop-blur-md border border-white/[0.08] text-center hover:border-violet-500/30 transition-all hover:-translate-y-0.5">
+                  <div className="w-7 h-7 mx-auto rounded-lg bg-cyan-500/15 border border-cyan-500/25 flex items-center justify-center text-cyan-300 mb-2">
+                    <GraduationCap className="w-3.5 h-3.5" />
+                  </div>
+                  <div className="text-xl sm:text-2xl font-bold font-mono text-white">HSC</div>
+                  <div className="text-[10px] sm:text-xs text-slate-400 font-medium leading-tight mt-1">
+                    College Level
+                  </div>
                 </div>
-                <div className="text-xl sm:text-2xl font-bold font-mono text-white">HSC</div>
-                <div className="text-[10px] sm:text-xs text-slate-400 font-medium leading-tight mt-1">
-                  College Level
-                </div>
-              </div>
+              </ClickSpark>
             </div>
           </div>
         </div>

@@ -18,7 +18,7 @@ export function Experience() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass border border-cyan-500/25 text-xs font-mono text-cyan-300 mb-4">
             <Milestone className="w-3.5 h-3.5 text-cyan-400" />
-            <span>// 04. EXPERIENCE &amp; DEVELOPMENT JOURNEY</span>
+            <span>{"//"} 04. EXPERIENCE &amp; DEVELOPMENT JOURNEY</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
             My Development <span className="gradient-text">Journey</span>

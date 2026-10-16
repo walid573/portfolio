@@ -1,6 +1,5 @@
 import React from "react";
 import type { Metadata } from "next";
-import Link from "next/link";
 import {
   Milestone,
   CheckCircle2,
@@ -13,6 +12,12 @@ import {
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { journeyMilestones } from "@/data/portfolio";
+import { CountUp } from "@/components/effects/CountUp";
+import { DecryptedText } from "@/components/effects/DecryptedText";
+import { Reveal } from "@/components/effects/Reveal";
+import { Magnetic } from "@/components/effects/Magnetic";
+import { AdvancedButton } from "@/components/effects/AdvancedButton";
+import { ClickSpark } from "@/components/effects/ClickSpark";
 
 export const metadata: Metadata = {
   title: "Professional Journey | Mohammad Walid — Full-Stack Web Developer",
@@ -42,7 +47,7 @@ export default function ExperiencePage() {
           {/* Header Section (Screenshot 2 Layout) */}
           <div className="text-center max-w-3xl mx-auto mb-16 pt-4">
             <div className="inline-flex items-center gap-2 text-xs font-mono text-violet-400 mb-3 tracking-wider">
-              <span>// ROADMAP &amp; TIMELINE</span>
+              <DecryptedText text="// ROADMAP & TIMELINE" speed={55} maxIterations={6} />
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-4">
@@ -59,17 +64,23 @@ export default function ExperiencePage() {
             {/* 3 Metric Stats Row (as shown in Screenshot 2) */}
             <div className="flex items-center justify-center gap-8 sm:gap-14 text-center pb-6">
               <div>
-                <div className="text-xl sm:text-2xl font-bold font-mono text-violet-300">2+</div>
+                <div className="text-xl sm:text-2xl font-bold font-mono text-violet-300">
+                  <CountUp end={2} suffix="+" />
+                </div>
                 <div className="text-[11px] sm:text-xs text-slate-400 font-mono mt-0.5">Years Exploring</div>
               </div>
               <div className="w-[1px] h-8 bg-white/10" />
               <div>
-                <div className="text-xl sm:text-2xl font-bold font-mono text-cyan-300">5</div>
+                <div className="text-xl sm:text-2xl font-bold font-mono text-cyan-300">
+                  <CountUp end={5} />
+                </div>
                 <div className="text-[11px] sm:text-xs text-slate-400 font-mono mt-0.5">Milestone Phases</div>
               </div>
               <div className="w-[1px] h-8 bg-white/10" />
               <div>
-                <div className="text-xl sm:text-2xl font-bold font-mono text-indigo-300">3+</div>
+                <div className="text-xl sm:text-2xl font-bold font-mono text-indigo-300">
+                  <CountUp end={3} suffix="+" />
+                </div>
                 <div className="text-[11px] sm:text-xs text-slate-400 font-mono mt-0.5">Projects Shipped</div>
               </div>
             </div>
@@ -130,7 +141,10 @@ export default function ExperiencePage() {
                     <div className="hidden sm:block w-1/2" />
 
                     {/* Card Container */}
-                    <div className="w-full sm:w-1/2 pl-10 sm:pl-0 sm:px-6">
+                    <Reveal
+                      direction={isEven ? "right" : "left"}
+                      className="w-full sm:w-1/2 pl-10 sm:pl-0 sm:px-6"
+                    >
                       <div className="rounded-3xl p-6 sm:p-7 bg-[#090b14]/85 backdrop-blur-md border border-white/[0.08] hover:border-violet-500/40 transition-all duration-300 group-hover:-translate-y-1 shadow-xl">
                         {/* Period & Role Badge */}
                         <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
@@ -165,7 +179,7 @@ export default function ExperiencePage() {
                           ))}
                         </div>
                       </div>
-                    </div>
+                    </Reveal>
                   </div>
                 );
               })}
@@ -175,24 +189,35 @@ export default function ExperiencePage() {
           {/* 13+ Technologies Mastered Summary Card (Screenshot 2 Element) */}
           <div className="rounded-3xl p-8 bg-[#090b14]/90 backdrop-blur-md border border-white/[0.08] mb-12 text-center max-w-3xl mx-auto">
             <h3 className="text-lg sm:text-xl font-bold text-white mb-6">
-              <span className="text-violet-400 font-mono">12+</span> technologies mastered through hands-on projects
+              <span className="text-violet-400 font-mono">
+                <CountUp end={12} suffix="+" />
+              </span>{" "}
+              technologies mastered through hands-on projects
             </h3>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5">
-                <div className="text-2xl font-bold font-mono text-violet-300">7</div>
+                <div className="text-2xl font-bold font-mono text-violet-300">
+                  <CountUp end={7} />
+                </div>
                 <div className="text-xs text-slate-400 font-mono mt-1">Frontend Tech</div>
               </div>
               <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5">
-                <div className="text-2xl font-bold font-mono text-cyan-300">3</div>
+                <div className="text-2xl font-bold font-mono text-cyan-300">
+                  <CountUp end={3} />
+                </div>
                 <div className="text-xs text-slate-400 font-mono mt-1">Backend Tools</div>
               </div>
               <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5">
-                <div className="text-2xl font-bold font-mono text-indigo-300">1</div>
+                <div className="text-2xl font-bold font-mono text-indigo-300">
+                  <CountUp end={1} />
+                </div>
                 <div className="text-xs text-slate-400 font-mono mt-1">Database</div>
               </div>
               <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5">
-                <div className="text-2xl font-bold font-mono text-emerald-300">3</div>
+                <div className="text-2xl font-bold font-mono text-emerald-300">
+                  <CountUp end={3} />
+                </div>
                 <div className="text-xs text-slate-400 font-mono mt-1">Shipped Apps</div>
               </div>
             </div>
@@ -208,21 +233,29 @@ export default function ExperiencePage() {
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-4">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-semibold text-sm text-white bg-gradient-to-r from-violet-600 via-indigo-600 to-cyan-600 hover:from-violet-500 hover:to-cyan-500 transition-all shadow-lg shadow-violet-600/30 hover:scale-105"
-              >
-                <span>Get In Touch</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+              <Magnetic>
+                <ClickSpark className="rounded-full" sparkCount={14} color="167, 139, 250">
+                  <AdvancedButton
+                    variant="aurora"
+                    href="/contact"
+                    className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-semibold text-sm text-white"
+                  >
+                    <span>Get In Touch</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </AdvancedButton>
+                </ClickSpark>
+              </Magnetic>
 
-              <Link
-                href="/projects"
-                className="experience-cta-secondary inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-semibold text-sm text-slate-200 bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 transition-colors"
-              >
-                <FileText className="w-4 h-4 text-violet-400" />
-                <span>Explore Projects</span>
-              </Link>
+              <Magnetic strength={0.18}>
+                <AdvancedButton
+                  variant="specular"
+                  href="/projects"
+                  className="experience-cta-secondary inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-semibold text-sm text-slate-200 hover:text-white"
+                >
+                  <FileText className="w-4 h-4 text-violet-400" />
+                  <span>Explore Projects</span>
+                </AdvancedButton>
+              </Magnetic>
             </div>
           </div>
         </div>

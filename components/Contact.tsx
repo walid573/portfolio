@@ -82,7 +82,7 @@ export function Contact() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass border border-violet-500/25 text-xs font-mono text-violet-300 mb-4">
             <Mail className="w-3.5 h-3.5 text-violet-400" />
-            <span>// 06. GET IN TOUCH</span>
+            <span>{"//"} 06. GET IN TOUCH</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
             Let&apos;s Build Something <span className="gradient-text">Together</span>

@@ -7,6 +7,8 @@ import { Menu, X, Sun, Moon } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/SocialIcons";
 import { personalInfo } from "@/data/portfolio";
 import { useTheme } from "@/components/ThemeProvider";
+import { Magnetic } from "@/components/effects/Magnetic";
+import { AdvancedButton } from "@/components/effects/AdvancedButton";
 
 interface NavItem {
   name: string;
@@ -195,13 +197,16 @@ export function Navbar() {
                 <LinkedinIcon className="w-4 h-4" />
               </a>
             </div>
-            <Link
-              href="/contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-semibold text-white bg-gradient-to-r from-violet-600 to-indigo-600"
-            >
-              <span>Contact</span>
-            </Link>
+            <Magnetic strength={0.15}>
+              <AdvancedButton
+                variant="aurora"
+                href="/contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-semibold text-white"
+              >
+                <span>Contact</span>
+              </AdvancedButton>
+            </Magnetic>
           </div>
         </div>
       )}

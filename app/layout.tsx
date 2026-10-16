@@ -76,6 +76,7 @@ export const metadata: Metadata = {
 };
 
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { ScrollKeep } from "@/components/effects/ScrollKeep";
 
 export default function RootLayout({
   children,
@@ -107,6 +108,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-[#040508] text-slate-100 antialiased selection:bg-violet-600 selection:text-white transition-colors duration-300">
+        <ScrollKeep />
         <ThemeProvider>
           <MotionEnhancer />
           {children}
