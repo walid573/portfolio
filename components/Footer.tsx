@@ -6,6 +6,7 @@ import { Mail, ArrowUp } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/SocialIcons";
 import { personalInfo } from "@/data/portfolio";
 import { Dock } from "@/components/effects/Dock";
+import { Logo } from "@/components/Logo";
 
 export function Footer() {
   // Stable initial year for prerendering; corrected on mount (see build note).
@@ -30,9 +31,7 @@ export function Footer() {
           {/* Brand & Tagline */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
             <Link href="/" className="flex items-center gap-2 mb-2">
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-violet-600 to-indigo-600 flex items-center justify-center text-white font-mono font-bold text-xs shadow-md">
-                MW
-              </div>
+              <Logo size={32} />
               <span className="text-lg font-bold text-white tracking-tight">
                 {personalInfo.name}
               </span>
